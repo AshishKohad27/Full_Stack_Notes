@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    div {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    span {
+        background-color: red;
+        width: 80px;
+        height: 80px;
+    }
+</style>
+
+<body>
+    <div>
+        <Span>
+            <Button id="btn">GIVE head</Button>
+        </Span>
+    </div>
+    <h1 id="head"></h1>
+</body>
+<script>
+    let head = document.getElementById("head");
+    let btn = document.getElementById("btn").addEventListener("click", (event) => {
+        let para = "Hello Ashish";
+        head.innerHTML = para;
+    })
+</script>
+
+</html>

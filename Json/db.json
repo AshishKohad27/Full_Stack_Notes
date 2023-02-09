@@ -1,0 +1,192 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "registration": [
+    {
+      "name": "Ashish Kohad",
+      "email": "kohadashish27@gmail.com",
+      "password": "a",
+      "username": "a",
+      "mobile": "08668794792",
+      "description": "a",
+      "id": 1
+    }
+  ],
+  "tasks": [
+    {
+      "title": "asd",
+      "description": "Register_ashish is not defined",
+      "taskStatus": "done",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": true
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "d",
+      "description": "d",
+      "taskStatus": "todo",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": true
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": false
+        }
+      ],
+      "id": 2
+    },
+    {
+      "title": "4",
+      "description": "d",
+      "taskStatus": "todo",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": false
+        },
+        {
+          "subTag": "official",
+          "status": true
+        },
+        {
+          "subTag": "other",
+          "status": false
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "4",
+      "description": "d",
+      "taskStatus": "inProgress",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": false
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 4
+    },
+    {
+      "title": "4",
+      "description": "d",
+      "taskStatus": "done",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": false
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "4",
+      "description": "d",
+      "taskStatus": "todo",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": false
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 6
+    },
+    {
+      "title": "asd",
+      "description": "",
+      "taskStatus": "inProgress",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": true
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 7
+    },
+    {
+      "title": "hello",
+      "description": "",
+      "taskStatus": "inProgress",
+      "tag": [
+        {
+          "subTag": "personal",
+          "status": true
+        },
+        {
+          "subTag": "official",
+          "status": false
+        },
+        {
+          "subTag": "other",
+          "status": true
+        }
+      ],
+      "id": 8
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

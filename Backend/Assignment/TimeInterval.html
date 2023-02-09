@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Set Timeout</h1>
+    <p>Press the stop button before the alert is shown</p>
+    <button onclick="val = setTimeout(gfg, 2000);">
+        Press me
+    </button>
+    <button onclick="clearTimeout(val);">Stop Set Timeout</button>
+
+    <h1>Set Interval</h1>
+    <p id="append"></p>
+    <button id="inter">Press</button>
+    <button id="stopInter">Stop Set Interval</button>
+</body>
+
+</html>
+<script>
+    // <!-- setTimeout -->
+
+    function gfg() {
+        alert('Welcome to GeeksforGeeks');
+    }
+
+    // <!-- set-Interval -->
+    let id;
+    const app = document.getElementById("append");
+    const inter = document.getElementById("inter").addEventListener("click", (e) => {
+        id = setInterval(() => {
+            let h1 = document.createElement("h1");
+            h1.innerHTML = "hello"
+            app.append(h1);
+        }, 1000)
+    });
+
+    const stopInter = document.getElementById("stopInter").addEventListener("click", () => {
+        clearInterval(id);
+    })
+
+</script>
