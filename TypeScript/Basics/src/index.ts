@@ -79,3 +79,7 @@ testData = [1, "ash", true];
 testData = { id: 1 };
 
 //11. Interface
+//12. Inheritance
+//13. Modifier and Statics
+//14. Interface and Multiple Interface
+//15. Duck_typing
