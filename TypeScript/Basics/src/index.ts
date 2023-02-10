@@ -161,3 +161,33 @@ const k1: Record<string, number[]> = {
   posts: [1, 2, 3],
   comments: [4, 5, 6],
 };
+
+//22.Array of Specific String
+const Country: Array<"INDIA" | "CHINA" | "RUSSIA"> = [
+  "INDIA",
+  "CHINA",
+  "RUSSIA",
+  //   "India",
+  //   "Japan",
+  //   "China",
+];
+//Case sensitive so that it give only desire result to us rest will be high-lighted
+
+//22.1 using interface
+type Country = "INDIA" | "CHINA" | "RUSSIA";
+const CountryInterface: Array<Country> = ["INDIA", "CHINA", "RUSSIA"];
+
+//23.//type nesting
+type GENDER = "Male" | "Female" | "Other";
+type USER = {
+  id: number;
+  name: String;
+  age: Number;
+  gender: GENDER; // SPECIFIC STRING
+};
+
+let typeArray: Array<USER> = [
+  { id: 1, name: "Ashish", age: 24, gender: "Male" },
+  { id: 2, name: "Ashish", age: 24, gender: "Female" },
+  //{ id:3 ,name: "Name 3", age: 24, gender: "oTHER" }, // THROW ERROR
+];

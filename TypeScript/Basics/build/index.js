@@ -118,3 +118,18 @@ const k1 = {
     posts: [1, 2, 3],
     comments: [4, 5, 6],
 };
+//22.Array of Specific String
+const Country = [
+    "INDIA",
+    "CHINA",
+    "RUSSIA",
+    //   "India",
+    //   "Japan",
+    //   "China",
+];
+const CountryInterface = ["INDIA", "CHINA", "RUSSIA"];
+let typeArray = [
+    { id: 1, name: "Ashish", age: 24, gender: "Male" },
+    { id: 2, name: "Ashish", age: 24, gender: "Female" },
+    //{ id:3 ,name: "Name 3", age: 24, gender: "oTHER" }, // THROW ERROR
+];
