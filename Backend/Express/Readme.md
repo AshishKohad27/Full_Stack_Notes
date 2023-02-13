@@ -34,5 +34,12 @@ If the current middleware function does not end the request-response cycle, it m
 
 1. # What are common libraries you work with express?
 
+- ## What is Cookies?
+- src:- https://www.geeksforgeeks.org/http-cookies/
+
 1. # What is CORS?
+
    src:- https://blog.knoldus.com/a-guide-to-cors-in-node-js-with-express/#what-is-cors
+
+1. # StatusCode
+   ![Alt text](IMG/statuscode.png)

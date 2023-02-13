@@ -20,6 +20,12 @@ console.log("mul:", calculator(2, 3, mul));
 
 //   Higher-Order Functions(HoF): A function that takes another function(s) as an argument(s) and/or returns a function as a value.
 // Callback Functions(CB): A function that is passed to another function.
+/*
+A callback is a plain JavaScript function passed to some method as an argument 
+r option. It is a function that is to be executed after another function has 
+finished executing, hence the name ‘call back‘. In JavaScript, functions are 
+objects. Because of this, functions can take functions as arguments, and can 
+be returned by other functions.*/
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // ForEach
@@ -53,3 +59,6 @@ console.log("arr === obj", double);
 console.log("arr === obj", triple);
 console.log("typeOf:", typeDouble);
 console.log("typeOf:", typeTriple);
+
+
+

@@ -1,3 +1,5 @@
+short notes :- https://www.edureka.co/blog/interview-questions/javascript-interview-questions/
+
 Javascript Topics:
 
 # 1. Primitives data types
@@ -1132,6 +1134,14 @@ All variables in javascript are hoisted, but var variables are hoisted in one wa
 # Callback Hell
 
 scr:- https://www.scaler.com/topics/nodejs/node-js-callback-hell/
+
+
+
+# Q22. What is the difference between Attributes and Property?
+- Attributes-  provide more details on an element like id, type, value etc.
+
+- Property-  is the value assigned to the property like type=”text”, value=’Name’ etc.
+
 
 using AJAX / XHR
 callback, callback hell

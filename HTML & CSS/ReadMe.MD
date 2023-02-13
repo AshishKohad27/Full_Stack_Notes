@@ -1,0 +1,1 @@
+SRC:- https://www.interviewbit.com/html-interview-questions/#are-html-tags-and-elements-the-same
