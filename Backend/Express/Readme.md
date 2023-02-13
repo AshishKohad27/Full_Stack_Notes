@@ -16,13 +16,14 @@ Call the next middleware function in the stack.
 If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
 
 1. # What is MVC framework?
-src:- https://developer.mozilla.org/en-US/docs/Glossary/MVC
+   src:- https://developer.mozilla.org/en-US/docs/Glossary/MVC
+
 - Model: Manages data and business logic.
 - View: Handles layout and display.
 - Controller: Routes commands to the model and view parts.
 
 1. # How do you do validations?
-with example
+   with example
 1. # How do you do static routing?
 
 1. # What are some templating engines?
@@ -34,4 +35,4 @@ with example
 1. # What are common libraries you work with express?
 
 1. # What is CORS?
-src:- https://blog.knoldus.com/a-guide-to-cors-in-node-js-with-express/#what-is-cors
+   src:- https://blog.knoldus.com/a-guide-to-cors-in-node-js-with-express/#what-is-cors
