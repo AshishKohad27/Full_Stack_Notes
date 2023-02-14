@@ -19,7 +19,7 @@ let [getValue, setValue] = mockUseState(120); //initial value
 // value = value + 1;// we can;t update this from outside we need this to be update from
 //  inside only and that keep away from bugs
 
-setValue(getValue() + 8); //--> internally we update only by setValue;
+setValue(getValue() + 800); //--> internally we update only by setValue;
 // console.log('value:', value)
 console.log(getValue()); //--> only way to getValue from function vai getValue;
 // console.log(getValue()); //--> only way to getValue from function vai getValue;

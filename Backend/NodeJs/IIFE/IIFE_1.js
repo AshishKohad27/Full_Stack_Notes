@@ -13,9 +13,12 @@ callMe();
 
 })()
 
-// Note: If you run the above code, it will cause an Uncaught TypeError: callMe(...) is not a function. And it concatenates the callMe function with IIFE next to it.
+// Note: If you run the above code, it will cause an Uncaught TypeError: callMe(...) 
+// is not a function. And it concatenates the callMe function with IIFE next to it.
 // The Solution:
-// The above code will result in syntax errors during execution. Hence, we use semicolons to avoid unnecessary concatenation with the previous/next line of javascript code.
+// The above code will result in syntax errors during execution. Hence, we use 
+// semicolons to avoid unnecessary concatenation with the previous/next line of 
+// javascript code.
 
 
 // Syntax 2
@@ -48,4 +51,7 @@ for (var j = 1; j <= 5; j++) {
         }, 1000 * j)
     })(j)
 }
-// By using an IIFE, we create a new scope for our callback function. Our IIFE takes a parameter step. Every time our IIFE is called, we give it the current value of i as its argument. Now, when the callback is ready to be executed, its closure will have the correct value of step.
+// By using an IIFE, we create a new scope for our callback function.
+//  Our IIFE takes a parameter step. Every time our IIFE is called, we give 
+// it the current value of i as its argument. Now, when the callback is ready
+//  to be executed, its closure will have the correct value of step.
