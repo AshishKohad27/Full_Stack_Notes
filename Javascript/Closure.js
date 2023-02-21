@@ -3,7 +3,7 @@ function outerFunction(number) {
 
     function innerFunction(newNumber) {
         initial = initial * newNumber + number;
-        return initial;
+        return initial;// because of closure initial value stored in lexical scope
     }
     return innerFunction;
 }

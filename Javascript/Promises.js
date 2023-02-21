@@ -27,13 +27,14 @@ function delayInPromises() {
     .catch((e) => console.log(e));
 }
 
+// PromiseAll()
 function PromiseAll() {
   // Creating 3 promises
   //promise All:- Promise.all() resolves when all the promises resolve.
   const firstPromise = 60;
   const secondPromise = Promise.resolve(25);
   const thirdPromise = new Promise((resolve, reject) => {
-    if (false) {
+    if (true) {
       setTimeout(resolve, 100, "Resolved!");
     } else {
       reject("Got an Error");
@@ -48,8 +49,8 @@ function PromiseAll() {
   // expected output: Array [60, 25, "Resolved!"]
 }
 
-// Promise.allSettled() resolves when all the promises settle, i.e., either fulfill or get rejected.
 function allSettled() {
+  // Promise.allSettled() resolves when all the promises settle, i.e., either fulfill or get rejected.
   // Creating 3 promises
   const firstPromise = 60;
   const secondPromise = Promise.resolve(25);
@@ -58,7 +59,7 @@ function allSettled() {
   });
 
   Promise.allSettled([firstPromise, secondPromise, thirdPromise]).then(
-    (results) => results.forEach((result) => console.log(result))
+    (results) => console.log(results)
   );
   // expected output:
   // "fulfilled"
@@ -89,10 +90,12 @@ function PromiseAny() {
   // "fulfilled"
   // "rejected"
 }
-PromiseAny();
+// PromiseAny();
 
 
 function PromiseRace() {
+  let thirdPromise = Promise.reject("I am rejected")
+  
   let firstPromise = new Promise((resolve, reject) => {
     setTimeout(() => { resolve("First Promises of delay 1000") }, 1000);
   })
@@ -100,7 +103,8 @@ function PromiseRace() {
   let secondPromise = new Promise((resolve, reject) => {
     setTimeout(() => { resolve("Second Promises of delay 2000") }, 2000);
   })
-  Promise.any([secondPromise, firstPromise])
+
+  Promise.any([secondPromise, firstPromise, thirdPromise])
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
 
