@@ -6,7 +6,7 @@ fs.appendFile('CreateFile_3', 'Hello World aSHISH', (err) => {
 })
 
 //rename file
-fs.rename('CreateFile_2', 'RenameFile_2', (err) => {
+fs.rename('CreateFile_3', 'RenameFile_3', (err) => {
     if (err) throw err;
     console.log('Rename File')
 })

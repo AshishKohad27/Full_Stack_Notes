@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
         res.setHeader({ 'Content-Type': 'text/html' });
         res.write("input1.txt");
         res.end();
-        
+
         // console.log(data);
     })
 })
@@ -27,16 +27,16 @@ fs.readFile('./input1.txt',
     { encoding: 'utf8', flag: 'r' },
     (err, data) => {
         if (err)
-        console.log(err);
+            console.log(err);
         else
-            console.log("readFile:----------",data);
+            console.log("readFile:----------", data);
     });
 console.log("After readFile")
 
 
 //Blocking 
 console.log("Before readFileSync")
-let data = fs.readFileSync("./input2.txt", { encoding: 'utf8',flag:'r'})
+let data = fs.readFileSync("./input2.txt", { encoding: 'utf8', flag: 'r' })
 console.log('readFileSync-----------:', data)
 console.log("After readFileSync")
 

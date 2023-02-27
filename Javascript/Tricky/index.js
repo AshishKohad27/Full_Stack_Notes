@@ -2,7 +2,7 @@ function abc(a, a, b) {
     console.log("a", a, "b", b);
     console.log(a + a + b);
 }
-// abc(1, 2, 3);
+abc(1, 2, 3);
 
 
 //2.

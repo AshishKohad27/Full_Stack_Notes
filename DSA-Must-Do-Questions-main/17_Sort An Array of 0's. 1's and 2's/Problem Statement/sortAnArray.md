@@ -7,7 +7,7 @@ Given an array A[] consisting 0s, 1s and 2s. The task is to write a function tha
 #### **Sample Input**
 	array = {0, 1, 2, 0, 1, 2}
 
-	
+	 
 
 #### **Sample Output**
 	array = {0, 0, 1, 1, 2, 2}

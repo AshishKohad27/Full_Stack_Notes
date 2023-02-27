@@ -141,7 +141,8 @@ If we load other JavaScript files in our browser, they also gain access to gener
 })();
 ```
 
-It runs the same, but now generateMagicNumber() and favoriteNumber are only accessible in our script. 3. Asynchronous functions in loops
+It runs the same, but now generateMagicNumber() and favoriteNumber are only accessible in our script. 
+3. Asynchronous functions in loops
 
 ```javascript
 //Example

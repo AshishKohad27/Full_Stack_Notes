@@ -14,7 +14,10 @@ let user3 = {
     designation: "SDE",
 }
 let printDetails = function (state, country) {
+    this.state = state;
+    this.country = country;
     console.log(this.name + " " + state + " " + country);
+    console.log(this);
 }
 //Call
 printDetails.call(user1);
@@ -22,6 +25,8 @@ printDetails.call(user2, "Maharashtra", "Country");
 printDetails.call(user3);
 
 //Apply
-printDetails.apply(user2, ["Maharashtra", "Country"]);
+printDetails.apply(user3, ["Maharashtra", "Country"]);
 
 //Blind
+let newUser = printDetails.bind(this);
+console.log('newUser:', newUser)
