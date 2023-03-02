@@ -125,10 +125,10 @@ let ArrayOfObject: Array<{
     value: number;
   };
 }> = [
-  { id: 1, name: "Ashish", status: true, age: { value: 12 } },
-  { id: 2, name: "Tarun", status: true },
-  { id: 3, name: "Rahul", status: false },
-];
+    { id: 1, name: "Ashish", status: true, age: { value: 12 } },
+    { id: 2, name: "Tarun", status: true },
+    { id: 3, name: "Rahul", status: false },
+  ];
 
 //20. Object of Array
 interface InterObj {

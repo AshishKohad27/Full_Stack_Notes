@@ -1,0 +1,1 @@
+src:- https://dev.to/midasxiv/scopes-hoisting-closures-tricky-questions-4c85

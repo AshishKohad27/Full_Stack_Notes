@@ -162,7 +162,7 @@ Here are two scenarios:
 
 -
 
-## How does middlewares work in express?
+## How does middle wares work in express?
 
 -
 
