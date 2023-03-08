@@ -148,3 +148,19 @@ let multiplyBy3 = Outer(3);
 console.log('multiplyBy3:', multiplyBy3(6))
 // console.log(multiplyBy2(5))
 
+
+
+/**
+ * Scopes 
+ *    1. Global Scope
+ *    2. Block Scope
+ *    3. Local or Function Scope
+ *    4. Lexical Scope
+ * 
+ * Examples of Closure
+ * 1. Currying
+ * 2. For Loop De-lima
+ * 3. Private Variables
+ * 4. Higher Order function 
+ * 5. Toggle Function
+*/
