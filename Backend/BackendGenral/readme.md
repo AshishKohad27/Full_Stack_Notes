@@ -46,34 +46,42 @@ Image Source
 REST API is an API that follows a set of rules for an application and services to communicate with each other. As it is constrained to REST architecture, REST API is referred to as RESTful API. REST APIs provide a way of accessing web services in a flexible way without massive processing capabilities. Below are the underlying rules of REST API:
 
 1. Statelessness
+
    - Systems aligning with the REST paradigm are bound to become stateless. For Client-Server communication, stateless constraint enforces servers to remain unaware of the client state and vice-versa. A constraint is applied by using resources instead of commands, and they are nouns of the web that describe any object, document, or thing to store/send to other resources.
 
 2. Cacheable
+
    - Cache helps servers to mitigate some constraints of statelessness. It is a critical factor that has improved the performance of modern web applications. Caching not only enhances the performance on the client-side but also scales significant results on the server-side. A well-established cache mechanism would drastically reduce the average response time of your server.
 
 3. Client-server Decoupling
+
    - This principle states that the client and the server components should be isolated from each other. The client should not be able to modify anything on the server-side. The server should not be able to modify anything on the client side. The interaction between the client and the server should always be via the API.
 
 4. Layered
-  - A Layered system makes a REST architecture scalable. With RESTful architecture, Client and Server applications are decoupled, so the calls and responses of REST APIs go through different layers. As REST API is layered, it should be designed such that neither Client nor Server identifies its communication with end applications or an intermediary.
+
+- A Layered system makes a REST architecture scalable. With RESTful architecture, Client and Server applications are decoupled, so the calls and responses of REST APIs go through different layers. As REST API is layered, it should be designed such that neither Client nor Server identifies its communication with end applications or an intermediary.
 
 Key Benefits of REST API
 
 1. Flexible
+
    - REST API is flexible with multiple types of calls like return different data formats and change structurally with the correct implementation of hypermedia. It allows users to communicate back and forth with clients and servers, even if they are hosted on different servers.
 
 2. Adaptable
+
    - REST API is adaptable to any modification done in data that resides in the database, even when hosted on the different back- and front-end servers. Since it depends to a certain extent on codes, it helps synchronize data within websites without any issue.
 
 3. Ease of Understanding
    - Flow of Data using REST APIs
-   Image Source
-   As REST uses HTTP verbs (GET, POST, PUT or DELETE) methods for communication, these methods are self-explanatory. In addition, REST architecture helps increase developers’ productivity, allowing them to display the information on the client-side and store or manipulate the data on the server-side.
+     Image Source
+     As REST uses HTTP verbs (GET, POST, PUT or DELETE) methods for communication, these methods are self-explanatory. In addition, REST architecture helps increase developers’ productivity, allowing them to display the information on the client-side and store or manipulate the data on the server-side.
 
-------
+---
 
 SRC:- https://www.scaler.com/topics/what-is-rest-api/
+
 # API:- Application Program Interface
+
 Let’s break this out with a simple and common real-life example.
 
 Consider, you and your friends have gone out for a trip to visit Taj Mahal, you are all totally swept off by its beauty and forget the time totally. Suddenly, one of your friends say he/she is hungry, and every agree with his idea to find a good restaurant nearby. So you check for the nearest restaurant on Google Maps and reach there.
@@ -100,19 +108,24 @@ Let’s break this out with the same real-life example.
 ## Difference between API and REST API?
 
 1. API vs REST API: Structure
-  - While structurally, most of the APIs follow the application-application format, REST API strictly operates on the web concept of Client and Server. The Client and Server are separated from one another, giving more flexibility.
+
+- While structurally, most of the APIs follow the application-application format, REST API strictly operates on the web concept of Client and Server. The Client and Server are separated from one another, giving more flexibility.
 
 2. API vs REST API: Design
+
    - Generally, APIs are lightweight architectures that are designed for gadgets constrained to devices like smartphones. In contrast, REST APIs communicate over systems, making it a complex architecture.
 
 3. API vs REST API: Protocol
-  - The primary goal of API is to standardize data exchange between web services. Depending on the type of API, the choice of protocol changes. On the other hand, REST API is an architectural style for building web services that interact via an HTTP protocol. Although REST API was formulated in 2000 by computer scientist Roy Fielding, it remains the gold standard for public APIs.
+
+- The primary goal of API is to standardize data exchange between web services. Depending on the type of API, the choice of protocol changes. On the other hand, REST API is an architectural style for building web services that interact via an HTTP protocol. Although REST API was formulated in 2000 by computer scientist Roy Fielding, it remains the gold standard for public APIs.
 
 4. API vs REST API: Support
+
    - Most of the API are easy to implement as they do not face statelessness. In contrast, REST API gets executed even if users do not know the function names and the parameters in a specific order.
 
 5. API vs REST API: Uniform Interface
-  - Not many API decouples the client from a server or one application from another. REST API adheres to the principles of a uniform interface and forbids the use of self or multiple interfaces within an API. Hypermedia connections should ideally be used to distribute a single interface. It should also ensure that a similar piece of data (for example, a user’s name or email address) belongs to only one uniform resource identifier (URI). As a result, regardless of the initial request, all API requests for the same resources should look the same.
+
+- Not many API decouples the client from a server or one application from another. REST API adheres to the principles of a uniform interface and forbids the use of self or multiple interfaces within an API. Hypermedia connections should ideally be used to distribute a single interface. It should also ensure that a similar piece of data (for example, a user’s name or email address) belongs to only one uniform resource identifier (URI). As a result, regardless of the initial request, all API requests for the same resources should look the same.
 
 6. API vs REST API: Scalability
    While scalability is an issue for general APIs, REST API has a layered structure, making REST API modular and more flexible to achieve scalability.
@@ -120,9 +133,11 @@ Let’s break this out with the same real-life example.
 ## What is a stateless backend?
 
 src:- https://www.interviewbit.com/blog/stateful-vs-stateless/
-### StateFul 
+
+### StateFul
 
 ### StateLess
+
 ![Alt text](../Assignment/images/StateFulVsStateLess_1.PNG)
 ![Alt text](../Assignment/images/StateFulVsStateLess_2.PNG)
 ![Alt text](../Assignment/images/StateFulVsStateLess_3.PNG)
@@ -133,6 +148,7 @@ src:- https://www.interviewbit.com/blog/stateful-vs-stateless/
 ## What is gRPC?
 
 ## What is the client server model?
+
 .
 
 ## What is HTTP vs HTTPS?
@@ -146,6 +162,15 @@ normal-vs-secure-https
 ![Alt text](../Images/http-working.webp)
 HTTP (Hyper Text Transfer Protocol) is also known as a "stateless protocol" because each transaction is executed independently without having prior knowledge of the transactions. This means that once the transaction between the web browser and the server is completed, the connection is lost.
 
+## What is SSL/TLS?
+
+what is SSL
+SSL stands for Secure Sockets Layer, which is a protocol designed to provide secure communication over the internet. It was developed by Netscape in the mid-1990s and has since been replaced by the newer Transport Layer Security (TLS) protocol, though the term SSL is still commonly used to refer to both protocols.
+
+SSL/TLS provides encryption and authentication mechanisms that ensure the confidentiality and integrity of data transmitted between a client (such as a web browser) and a server (such as a website). When a user connects to a website that uses SSL/TLS, their browser and the server perform a "handshake" process to establish a secure connection. This involves exchanging certificates to verify the identities of both parties, negotiating encryption algorithms, and generating a shared secret key that is used to encrypt and decrypt data.
+
+SSL/TLS is commonly used for securing web traffic, such as online transactions and sensitive information exchange, but it can also be used for other types of network communication, such as email, messaging, and virtual private networks (VPNs).
+
 ## What is throughput?
 
 ## What is availability?
@@ -153,6 +178,7 @@ HTTP (Hyper Text Transfer Protocol) is also known as a "stateless protocol" beca
 ## What is latency?
 
 ## What is Caching?
+
 Caching is the process of storing the most recently used data, so that if it’s requested again it can be accessed from the cache, this saves a lot of time. Since we don’t have to send the request to the server and wait for it to respond to us with the data.
 
 This principle states that every response from the server should be implicitly or explicitly mentioned as cacheable or non-cacheable, i.e., whether it can be cached or not. For cacheable response, the time period for which the response is valid must also be specified.
@@ -160,8 +186,6 @@ This principle states that every response from the server should be implicitly o
 So, now when a client makes a request, we check for its availability in the local cache. If it's available in the cache, we then check whether the data is still valid, and if it is valid, then the request is not forwarded to the server, the data is just fetched from the local cache. If otherwise, such as not available or not valid, then the request is forwarded to the server.
 
 This increases the scalability of the server, by reducing the workload of repeated and unwanted requests.
-
-
 
 ## What are ways to cache on the backend?
 
