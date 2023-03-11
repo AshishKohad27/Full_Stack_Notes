@@ -19,12 +19,29 @@
 // console.log(0 && 90  );
 
 
-for (let i = 0; i < 5; i++) {
-    // (function (i) {
-        setTimeout(() => {
-            console.log(i);
-        }, 1000)
-    // })(i)
+// for (let i = 0; i < 5; i++) {
+//     // (function (i) {
+//         setTimeout(() => {
+//             console.log(i);
+//         }, 1000)
+//     // })(i)
 
 
-}
+// }
+
+
+// let result = 0 || 12
+// console.log('result:', result)
+let count = 0;
+let id;
+
+id = setInterval(() => {
+    console.log("hello", count);
+    count++;
+    if (count === 10) {
+        console.log("Stop setInterval")
+        clearInterval(id)
+    }
+}, 1000);
+
+console.log("count:", count);
