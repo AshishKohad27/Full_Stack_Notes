@@ -14,6 +14,7 @@
 ## Stateful vs StateLess
 ![Alt text](Images/statefulVsStateLessComponents.PNG)
 
+
 ## What do you know about controlled and uncontrolled components?
 ![Alt text](Images/ControllVSUncontrollComponenets.PNG)
 
