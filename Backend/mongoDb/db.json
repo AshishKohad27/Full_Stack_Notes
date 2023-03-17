@@ -1,0 +1,15 @@
+// "orders"[{ _id: 1, productId: 100, quantity: 2 },{ _id: 2, productId: 101, quantity: 1 },{ _id: 3, productId: 102, quantity: 3 }]
+
+// "products"=[{ _id: 100, name: "Product 1", price: 10 },{ _id: 101, name: "Product 2", price: 20 },{ _id: 102, name: "Product 3", price: 30 }]
+
+
+
+
+// db.orders.aggregate([
+//    { $lookup:{
+//         from:"products",
+//         localField:"productId"
+//         foreignField:"_id",
+//         as:"productInfo"
+//     }}
+// ])
