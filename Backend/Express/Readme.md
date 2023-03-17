@@ -37,6 +37,19 @@ If the current middleware function does not end the request-response cycle, it m
 
 1. # What are common libraries you work with express?
 
+Cookies, Session Storage, and Local Storage are all mechanisms for storing data on the client side within a user's web browser. However, there are some differences between them:
+
+Cookies:
+Cookies are small text files that are sent by a website and stored on the user's computer by the web browser. Cookies are primarily used to store user preferences and login information, and they can be used to track user behavior across different websites. Cookies have an expiration time and can be set to expire when the browser is closed or after a specified time. They can also be set to be accessed only by a specific domain.
+
+Session Storage:
+Session Storage is a mechanism that allows web pages to store key/value pairs in the user's browser for the duration of a session. The data stored in Session Storage is available only for the current session, which ends when the user closes the browser window. Session Storage is useful for storing temporary data, such as data entered by a user in a form, that needs to persist across different pages within a website.
+
+Local Storage:
+Local Storage is similar to Session Storage, but the data stored in Local Storage persists even after the browser is closed and reopened. Local Storage is useful for storing data that needs to persist across multiple sessions, such as user preferences or application settings. Data stored in Local Storage is available to any page within the same origin (protocol, host, and port), and can be accessed even when the user is offline.
+
+In summary, Cookies are primarily used for user authentication and tracking, Session Storage is used for storing temporary data within a session, and Local Storage is used for persisting data across sessions.
+
 - ## What is Cookies?
 - src:- https://www.geeksforgeeks.org/http-cookies/
 

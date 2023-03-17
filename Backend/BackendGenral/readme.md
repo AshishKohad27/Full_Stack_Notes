@@ -37,6 +37,23 @@ src:- https://www.scaler.com/topics/authentication-authorization-and-accounting/
 ## What is cookie-based auth?
 
 ## What is session management?
+## What is REST api? and what is restfull then
+
+- REST (Representational State Transfer) is a software architectural style for building web services. It is based on HTTP protocols and emphasizes the use of standard HTTP methods (such as GET, POST, PUT, DELETE) to manipulate resources, which are identified by unique URLs or URIs (Uniform Resource Identifiers). RESTful APIs (Application Programming Interfaces) are designed to be scalable, reliable, and easy to maintain.
+
+- A RESTful API is one that conforms to the principles of REST. In addition to using HTTP methods and URLs to manipulate resources, a RESTful API should also adhere to the following constraints:
+
+1. Client-server architecture: The API should have a clear separation between the client (the application making the request) and the server (the application processing the request).
+
+2. Statelessness: Each request should contain all the information necessary for the server to fulfill the request, and the server should not rely on any information from previous requests.
+
+3. Cacheability: Responses should be able to be cached by the client or any intermediary network components to improve performance.
+
+4. Layered system: The API should be designed to be layered, so that intermediaries such as load balancers, proxies, and gateways can be added without affecting the behavior of the client or server.
+
+5. Uniform interface: The API should use a uniform interface that is standardized and easy to understand, so that clients can interact with the API without needing to know about the implementation details.
+
+Overall, a RESTful API is a web service that follows the principles of the REST architectural style, which enables easy communication between different systems over the internet.
 
 ## What is REST api?
 

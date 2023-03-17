@@ -1,6 +1,6 @@
 // Create a new file using the appendFile() method:
 let fs = require("fs");
-fs.appendFile("fileName_6", "Hello File 6", (err) => {
+fs.appendFile("fileName_6.html", "Hello File 6", (err) => {
     if (err) throw err;
     console.log("NewFile Created Successfully!");
 });
