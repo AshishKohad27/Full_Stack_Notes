@@ -118,3 +118,27 @@ src:- https://www.geeksforgeeks.org/web-socket-in-node-js/
 # 1. What are microservices?
 
 # 1. Creating a CLI based app using Node.js and publish it
+
+
+# if node js in single-threaded how the handle multiple users 
+
+Although Node.js is single-threaded, it uses an event-driven and non-blocking I/O model that allows it to handle multiple users and connections efficiently.
+
+When a new user connects to a Node.js server, a new event is added to the event loop, and the server's callback function is executed to handle the connection. The event loop continuously checks for events, and as soon as a connection event is detected, the callback function is invoked.
+
+Node.js uses non-blocking I/O operations, which means that it can perform I/O operations (such as reading data from a file or sending data over a network) asynchronously without blocking the event loop. This allows Node.js to handle multiple connections concurrently, even with a single thread.
+
+In addition, Node.js uses an asynchronous callback function pattern for executing CPU-intensive tasks, which involves delegating the task to a worker thread or a thread pool and then notifying the main thread when the task is completed. This allows Node.js to handle CPU-bound tasks without blocking the event loop and maintain its responsiveness to incoming requests.
+
+Overall, Node.js's event-driven and non-blocking I/O model, combined with asynchronous callback functions, allows it to efficiently handle multiple users and connections with a single thread.
+
+
+==
+
+Node.js is indeed single-threaded, meaning that it runs on a single thread and can only execute one task at a time. However, this does not mean that Node.js cannot handle multiple users or requests.
+
+In Node.js, the event loop is responsible for handling multiple connections and requests. The event loop continuously runs and listens for incoming events such as incoming HTTP requests, database queries, or file I/O operations. When an event is received, the event loop adds it to a queue, and the callback associated with the event is executed asynchronously in a non-blocking way. This allows Node.js to handle multiple requests concurrently, even though it is single-threaded.
+
+To further enhance its ability to handle multiple users, Node.js provides a concept called "event-driven architecture". This means that instead of creating a separate thread for each user or request, Node.js uses callbacks and event emitters to handle events and execute code in a non-blocking way. This enables Node.js to handle thousands of concurrent connections and requests with low overhead, making it a great choice for building high-performance network applications.
+
+In addition, Node.js also provides a cluster module, which allows developers to run multiple Node.js processes in a cluster, each on a separate thread or core. This enables Node.js to utilize multiple cores on a machine, making it even more scalable and capable of handling even higher levels of traffic.

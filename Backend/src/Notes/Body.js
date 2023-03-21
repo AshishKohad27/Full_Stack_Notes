@@ -3,5 +3,5 @@
 
 exports.myHtmlBody = () => {
 
-    '<h1>Who are you Ashish? How was going</h1>';
+   return '<h1>Who are you Ashish? How was going</h1>';
 }

@@ -108,7 +108,7 @@ src:- https://www.scaler.com/topics/throughput-in-computer-networks/
 
 -
 
-## What are clusters?
+##  
 
 -
 

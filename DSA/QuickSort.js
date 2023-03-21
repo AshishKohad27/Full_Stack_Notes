@@ -11,7 +11,7 @@ function QuickSort(arr, start, end) {
     }
 
     let pivot = Partition(arr, start, end);
-    console.log('pivot:', arr[pivot], pivot)
+    // console.log('pivot:', arr[pivot], pivot)
 
     QuickSort(arr, start, pivot - 1);
     QuickSort(arr, pivot + 1, end);
@@ -25,12 +25,14 @@ function Partition(arr, start, end) {
         if (pivot > arr[j]) {
             i++;
             [arr[i], arr[j]] = [arr[j], arr[i]];
-            console.log("At:", "j:", j, "i:", i, arr);
+            // console.log("At:", "j:", j, "i:", i, arr);
         }
     }
     i++;
     [arr[i], arr[end]] = [arr[end], arr[i]];
-    console.log("change End", arr);
+    // console.log("arr[arr.length-1]", arr[arr.length - 1])
+    // console.log("arr[i]:", arr[i]);
+    // console.log("change End", arr);
     return i;
 
 }

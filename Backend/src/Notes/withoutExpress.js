@@ -15,7 +15,7 @@ let bodyHtml = require("./Body")
 
 let server = http.createServer((req, res) => {
     // let body = `<h1>Hello ashish</h1>`;
-    let body = `<div>${bodyHtml.myHtmlBody}</div>`
+    let body = `<div>${bodyHtml.myHtmlBody()}</div>`
     res.writeHead(201, 'Content-type', 'text/html');
     res.write(body);
     res.end()

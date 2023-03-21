@@ -1,9 +1,9 @@
 //Selection Sort :- sort start from start
-let arr = [1, 4, 2, 3, 5];
+let arr = [1, 4, 2, 3, 5, 4];
 let N = arr.length;
 console.log("Before Sort:", arr);
 
-for (let i = 0; i < N - 1; i++) {
+for (let i = 0; i < N; i++) {
     let min = i;
     for (let j = i + 1; j < N; j++) {
         if (arr[min] > arr[j]) {
