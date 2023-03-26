@@ -15,9 +15,39 @@
 
    3.1 Availability: Encryption can also be used to ensure the availability of information. By encrypting data during transmission, it is protected from unauthorized interception or modification, ensuring that it is available to authorized individuals when they need it.
 
+# -2 very basic scenario based on CIA triad
+
+- Sure, here are two basic scenario-based examples using the CIA triad:
+
+## 1. Confidentiality Scenario:
+
+- Sarah has some sensitive financial information that she needs to share with her accountant, Bob. Sarah wants to ensure that the information remains confidential and is not accessed by anyone else. To ensure confidentiality, Sarah uses encryption to secure the data in transit and at rest. She also implements access controls to limit access to the information, allowing only Bob to view and work on the data. By implementing these measures, Sarah ensures that the information remains confidential and is only accessible to authorized personnel.
+
+## 2. Integrity Scenario:
+
+- John has a website that he uses to sell his products online. He wants to ensure that the information on his website is accurate and has not been tampered with by malicious actors. To ensure integrity, John uses hashing algorithms to ensure that the data on his website has not been altered or corrupted in any way. He also implements backups to ensure that he can restore the data if it is corrupted or lost. By implementing these measures, John ensures that the information on his website is accurate and has not been tampered with, ensuring the integrity of the data.
+
 # 2. Can you explain encryption, decryption, and hashing?
 
 1. Encryption is the process of converting plain text into a coded format known as ciphertext, to prevent unauthorized access to the data during transmission or storage. This is achieved by using a mathematical algorithm, which requires a key to encode and decode the data. Encryption ensures the confidentiality and integrity of the data.
+
+   - Symmetric encryption and asymmetric encryption are two different methods used in cryptography for encrypting and decrypting information.
+
+## Symmetric Encryption:
+
+- Symmetric encryption, also known as shared-secret encryption, uses a single key for both encryption and decryption. This means that the same key that is used to encrypt the data is also used to decrypt it. Examples of symmetric encryption algorithms include Advanced Encryption Standard (AES), Data Encryption Standard (DES), and Triple DES (3DES).
+
+### Example:
+
+- A common example of symmetric encryption is when you encrypt a file on your computer using a password. You create a password, and that password is used to encrypt the file. To decrypt the file, you need to enter the same password that you used to encrypt it.
+
+## Asymmetric Encryption:
+
+- Asymmetric encryption, also known as public-key encryption, uses two different keys for encryption and decryption. One key is used for encryption (the public key), and a different key is used for decryption (the private key). The public key is shared with anyone who needs to send you encrypted data, while the private key is kept secret and only used by the recipient to decrypt the data. Examples of asymmetric encryption algorithms include RSA, Diffie-Hellman, and Elliptic Curve Cryptography (ECC).
+
+### Example:
+
+- A common example of asymmetric encryption is when you send an encrypted email to someone. The recipient's public key is used to encrypt the email, and only the recipient, who holds the private key, can decrypt and read the message.
 
 2. Decryption, on the other hand, is the process of converting the ciphertext back into plain text by using the same key that was used to encrypt the data. Decryption is used to restore the original data after it has been encrypted. It ensures that only authorized individuals with access to the key can access the data.
 
@@ -79,7 +109,9 @@ If an attacker does manage to breach your defenses and compromise your data, it'
 
 # 7. Can you explain social engineering and phishing?
 
--
+- Social engineering is the use of psychological manipulation to trick people into divulging sensitive information or performing actions that they wouldn't otherwise do. Social engineers often use pretexting, or the creation of a false narrative or identity, to gain the trust of their targets. They might also use other techniques like phishing, baiting, or tailgating to gain access to sensitive information or physical spaces.
+
+- Phishing is a specific type of social engineering attack that involves the use of fraudulent emails, websites, or messages to trick people into revealing sensitive information like passwords, credit card numbers, or bank account details. Phishing attacks can be highly targeted, with the attacker using personal information to make the message seem more legitimate. Alternatively, phishing attacks can be more generalized, with the attacker casting a wide net and hoping to catch a few unsuspecting victims.
 
 # 8. What motivated you to transition from data analyst to cybersecurity?
 
@@ -221,8 +253,6 @@ If an attacker does manage to breach your defenses and compromise your data, it'
 
 - To summarize, the main difference between HTTP and HTTPS is that HTTPS provides an additional layer of security through the use of encryption, making it a more secure protocol for transferring data over the internet.
 
-# 25. What do you know about cybersecurity and cyberattacks?
-
 - SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic protocols that provide security for data transmitted over the internet. SSL was developed by Netscape in the 1990s, while TLS is its successor, developed by the Internet Engineering Task Force (IETF).
 
 - The SSL and TLS protocols work by encrypting the data transmitted between two endpoints (such as a web server and a web browser), and ensuring its integrity and authenticity. This is achieved through a series of steps known as the "TLS handshake", which involves the following:
@@ -240,6 +270,8 @@ If an attacker does manage to breach your defenses and compromise your data, it'
 6. The client responds with its own "Finished" message, and the two parties can now exchange encrypted data using the agreed-upon protocol and encryption algorithm.
 
    - The current version of TLS is TLS 1.3, which was released in 2018. It includes several improvements over previous versions, such as faster handshake times, improved security, and support for newer encryption algorithms. SSL, on the other hand, is no longer considered secure and has been deprecated in favor of TLS. The last version of SSL, SSL 3.0, was released in 1996 and is vulnerable to several security issues.
+
+# 25. What do you know about cybersecurity and cyberattacks?
 
 # 26. Tech stack used in projects
 
