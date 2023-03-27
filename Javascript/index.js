@@ -32,16 +32,19 @@
 
 // let result = 0 || 12
 // console.log('result:', result)
-let count = 0;
-let id;
+// let count = 0;
+// let id;
 
-id = setInterval(() => {
-    console.log("hello", count);
-    count++;
-    if (count === 10) {
-        console.log("Stop setInterval")
-        clearInterval(id)
-    }
-}, 1000);
+// id = setInterval(() => {
+//     console.log("hello", count);
+//     count++;
+//     if (count === 10) {
+//         console.log("Stop setInterval")
+//         clearInterval(id)
+//     }
+// }, 1000);
 
-console.log("count:", count);
+// console.log("count:", count);
+
+
+console.log(5 && 2 && 1)
