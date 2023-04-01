@@ -460,6 +460,7 @@ setCount(count + 1);
 }
 
 return (
+
 <div>
 <h1>Count: {count}</h1>
 <button onClick={handleClick}>Increment</button>
@@ -469,3 +470,40 @@ return (
 In this example, the useState hook is used to create a state variable called count and a function called setCount to update it. The handleClick function is called when the button is clicked, and it updates the count state by calling setCount with the new value of count.
 
 When the state of a component changes, React automatically re-renders the component to reflect the new state. This means that any changes to the state will be immediately reflected in the UI. It's important to note that the setState method is asynchronous, meaning that state updates may not be applied immediately. React will batch state updates for performance reasons, so multiple calls to setState may be grouped together and applied in a single update. To ensure that you are using the most up-to-date state, you can use the useState hook to get the current value of the state variable.
+
+# 41. Higher-order components (HOC) are a popular pattern in React for code reuse, composition, and abstraction.
+
+In React, HOCs are functions that take a component and return a new component with enhanced functionality or behavior. Essentially, they wrap a component and add some extra props or functionality to it.
+
+For example, imagine you have a component that fetches data from an API and renders it. You might want to reuse this logic across multiple components. You can create an HOC that takes care of fetching the data and passes it down as props to the wrapped component. This way, you can reuse the same logic without duplicating code.
+
+Here is an example of an HOC that adds a "loading" state to a component:
+
+javascript
+Copy code
+function withLoading(Component) {
+return function WithLoading(props) {
+const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+      setLoading(true);
+      // make an API call or do some expensive operation
+      setLoading(false);
+    }, []);
+
+    return isLoading ? <div>Loading...</div> : <Component {...props} />;
+
+}
+}
+
+function MyComponent(props) {
+return <div>{props.data}</div>;
+}
+
+const MyComponentWithLoading = withLoading(MyComponent);
+
+// Now you can use MyComponentWithLoading just like you would use MyComponent
+In this example, withLoading is an HOC that takes a component and returns a new component that has a loading state. The loading state is managed by the HOC, and the wrapped component receives it as a prop.
+
+
+# 42 .
