@@ -2,6 +2,7 @@ short notes :- https://www.edureka.co/blog/interview-questions/javascript-interv
 
 Javascript Topics:
 
+- https://www.geeksforgeeks.org/primitive-and-non-primitive-data-types-in-javascript/F
 # 1. Primitives data types
 
 src:- https://developer.mozilla.org/en-US/docs/Glossary/Primitive#:~:text=In%20JavaScript%2C%20a%20primitive%20(primitive,bigint

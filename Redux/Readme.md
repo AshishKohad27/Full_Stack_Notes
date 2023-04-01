@@ -146,6 +146,16 @@ src:- https://saranjeetgrewal.medium.com/teach-redux-to-5-years-old-11adb6900576
 
 # 17. What are redux thunks?
 
+Redux Thunks are a middleware for Redux, a popular state management library for JavaScript applications. Thunks are functions that allow us to perform asynchronous logic, such as fetching data from an API or dispatching multiple actions in sequence, inside a Redux action creator.
+
+The main reason to use Redux Thunks is to handle asynchronous actions in Redux. Redux is designed to handle synchronous actions, which means that it cannot directly handle asynchronous logic like making an API call or dispatching multiple actions in sequence. Thunks allow us to handle asynchronous logic outside of the Redux store, but still keep it within the Redux architecture.
+
+By using Redux Thunks, we can write actions that can dispatch multiple actions in sequence, perform side effects, and make API requests. It allows us to write clean and maintainable code by separating the logic for handling the asynchronous operation from the logic for updating the Redux store.
+
+To use Redux Thunks, we need to install the redux-thunk middleware and apply it to the store. Once we have done this, we can create thunk action creators that return a function instead of an action object. Inside the function, we can perform any asynchronous logic we need to, and then dispatch one or more actions to update the Redux store.
+
+Overall, Redux Thunks are a powerful tool for handling asynchronous actions in Redux, and they are widely used in Redux-based applications to manage complex state and data flow.
+
 - Redux Thunk acts as a middleware that will return you a function instead of an object while calling through the action creators. The returned function receives the dispatch method from the store and then later it is used to dispatch synchronously inside the body of function once the asynchronous actions have been completed.
 - https://www.geeksforgeeks.org/what-is-the-use-of-middleware-redux-thunk/
 - https://medium.com/@istvanistvan/why-use-redux-thunk-1ca326d6a46

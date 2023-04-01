@@ -47,4 +47,6 @@
 // console.log("count:", count);
 
 
-console.log(5 && 2 && 1)
+console.log(0 && 0 && 0)
+console.log(0 || 0 || 0)
+console.log(5 && 18 && 0 || 15 && 20 && 780 || 80 && 100 && 10)
