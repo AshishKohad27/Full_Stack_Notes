@@ -506,4 +506,13 @@ const MyComponentWithLoading = withLoading(MyComponent);
 In this example, withLoading is an HOC that takes a component and returns a new component that has a loading state. The loading state is managed by the HOC, and the wrapped component receives it as a prop.
 
 
-# 42 .
+# 42 . - What is Mounting a component in react?
+- What is Unmounting a component in react?
+
+In React, components are the building blocks of a user interface. Mounting and unmounting are two of the lifecycle methods that are called when a React component is added to or removed from the DOM.
+
+Mounting a component in React means rendering it for the first time and adding it to the DOM. This is done through the ReactDOM.render() method or through other higher-level methods like React.createElement() or JSX syntax. During the mounting phase, the component is initialized, and its constructor, getDerivedStateFromProps(), and render() methods are called in that order. After the initial render, the componentDidMount() method is called, and the component is now mounted in the DOM.
+
+Unmounting a component in React means removing it from the DOM. This is done when a component is no longer needed, or when the user navigates to a different page. During the unmounting phase, the componentWillUnmount() method is called, giving the component a chance to perform any necessary cleanup, such as canceling any outstanding network requests or clearing timers.
+
+Overall, mounting and unmounting are important lifecycle methods that allow developers to perform setup and cleanup tasks when a component is added to or removed from the DOM.

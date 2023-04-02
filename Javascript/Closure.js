@@ -33,12 +33,12 @@ function Sum(x) {
 let result = Sum(5)(10)(2);
 // console.log("result:", result);
 
-const arrow1 = (x) => (y) => (z) => console.log(x + y + z);
+// const arrow1 = (x) => (y) => (z) => console.log(x + y + z);
 // arrow1(5)(10)(2)
 
 // toggler : closure
-function toggler(...arg) {
-    // console.log(arg);
+function toggler(...arg) {// rest operator
+    console.log(arg);
     let index = 0;
     return function inner() {
         if (index === arg.length) {
@@ -47,9 +47,10 @@ function toggler(...arg) {
         return arg[index++];
     }
 }
-const tog = toggler(1, 2, 3, 4, "on", "off");
-// console.log("1:", tog());
-// console.log("2:", tog());
+let arr = [1, 2, 3, 4, "on", "off"]
+const tog = toggler(...arr); //spread operator
+console.log("1:", tog());
+console.log("2:", tog());
 // console.log("3:", tog());
 // console.log("4:", tog());
 // console.log("5:", tog());
@@ -59,7 +60,7 @@ const tog = toggler(1, 2, 3, 4, "on", "off");
 
 //Toggler oN off
 function togglerSwitch(...arg) {
-    console.log(arg)
+    // console.log(arg)
     let index = 0;
     return function Inner() {
         if (index === arg.length) {
@@ -69,12 +70,12 @@ function togglerSwitch(...arg) {
     }
 }
 const ash = togglerSwitch("On", "Off");
-console.log(ash());
-console.log(ash());
-console.log(ash());
-console.log(ash());
-console.log(ash());
-console.log(ash());
+// console.log(ash());
+// console.log(ash());
+// console.log(ash());
+// console.log(ash());
+// console.log(ash());
+// console.log(ash());
 
 
 //Getter and setter
@@ -97,17 +98,19 @@ function Friend(name, job) {
     }
 }
 
-const aryan = Friend("Aryan")
-console.log(aryan.getName()) // Aryan
-console.log(aryan._name) // undefined
-aryan.setName("Kaush")
-console.log(aryan.getName()) // Kaush
+// const aryan = Friend("Aryan")
+// console.log(aryan.getName()) // Aryan
+// console.log(aryan._name) // undefined
+// aryan.setName("Kaush")
+// console.log(aryan.getName()) // Kaush
 
 // Javascript Closures in a Loop:
-for (var i = 0; i < 5; i++) {
-    setTimeout(function () {
-        console.log(i);
-    }, 1000);
+function Clu(){
+    for (var i = 0; i < 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, 1000);
+    }
 }
 //    expected:- 0,1,2,3,4
 //    real:- 5,5,5,5,5
@@ -118,21 +121,26 @@ for (var i = 0; i < 5; i++) {
 // of i will not be the value of the iterator but the value of i in the outer 
 // function. Since this function is called for each value of i it will log all 
 // the value of i as desired.
-for (var i = 0; i < 5; i++) {
-    (function (i) {
+function forLoopDilema(){
+
+    for (var i = 0; i < 5; i++) {
+        (function (i) {
         setTimeout(function () {
             console.log(i);
         }, 1000);
     })(i)
 }
+}
 
 // Using let keyword in ES6:
 // let creates a new lexical scope in each iteration which means that we will 
 // have a new i in each iteration.The reason, as we discussed above is let is block scoped.
-for (let i = 0; i < 5; i++) {
-    setTimeout(function () {
-        console.log(i);
-    }, 1000);
+function forLoopDilemaSolution(){
+    for (let i = 0; i < 5; i++) {
+        setTimeout(function () {
+            console.log(i);
+        }, 1000);
+    }
 }
 
 // Higher Order Functions:
@@ -143,9 +151,9 @@ function Outer(X) {
     }
 }
 let multiplyBy2 = Outer(2);
-console.log('multiplyBy2:', multiplyBy2(6))
+// console.log('multiplyBy2:', multiplyBy2(6))
 let multiplyBy3 = Outer(3);
-console.log('multiplyBy3:', multiplyBy3(6))
+// console.log('multiplyBy3:', multiplyBy3(6))
 // console.log(multiplyBy2(5))
 
 
