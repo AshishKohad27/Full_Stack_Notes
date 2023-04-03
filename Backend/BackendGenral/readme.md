@@ -49,7 +49,7 @@ src:- https://www.scaler.com/topics/authentication-authorization-and-accounting/
 
 3. Cacheability: Responses should be able to be cached by the client or any intermediary network components to improve performance.
 
-4. Layered system: The API should be designed to be layered, so that intermediaries such as load balancers, proxies, and gateways can be added without affecting the behavior of the client or server.
+4. Layered system: A Layered system makes a REST architecture scalable. With RESTful architecture, Client and Server applications are decoupled, so the calls and responses of REST APIs go through different layers. As REST API is layered, it should be designed such that neither Client nor Server identifies its communication with end applications or an intermediary.
 
 5. Uniform interface: The API should use a uniform interface that is standardized and easy to understand, so that clients can interact with the API without needing to know about the implementation details.
 

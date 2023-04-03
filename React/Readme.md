@@ -507,7 +507,7 @@ In this example, withLoading is an HOC that takes a component and returns a new 
 
 
 # 42 . - What is Mounting a component in react?
-- What is Unmounting a component in react?
+# What is Unmounting a component in react?
 
 In React, components are the building blocks of a user interface. Mounting and unmounting are two of the lifecycle methods that are called when a React component is added to or removed from the DOM.
 
