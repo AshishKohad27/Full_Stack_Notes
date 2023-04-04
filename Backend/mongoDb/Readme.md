@@ -1,3 +1,7 @@
+## What is the difference between SQL and NoSQL databases?
+
+## What is a horizontal and vertical scaling?
+
 # 1. What is MongoDB, and how does it differ from traditional relational databases?
 
 - MongoDB is a document-oriented database system that stores data as documents in BSON format (a binary representation of JSON). Unlike traditional relational databases, MongoDB does not require a fixed schema, allowing for more flexible and scalable data models.
