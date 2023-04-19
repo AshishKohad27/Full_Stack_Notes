@@ -174,14 +174,170 @@ function App() {
 # 11. What is useCallback?
 
 - useCallback is a hook in React that memoizes a function and returns a memoized version of it. This can improve performance in cases where a function is being passed down to child components as a prop, because it ensures that the function reference remains the same between renders if the dependencies have not changed. This can prevent unnecessary re-renders of child components. The dependencies array is similar to the one used in the useEffect hook, and specifies the values that the memoized function depends on.
+- useCallback is a hook in React that is used to memoize functions so that they are not recreated on each render of a component. This can help improve performance by reducing unnecessary re-renders of child components that depend on these functions.
+
+```javascript
+import React, { useState, useCallback } from "react";
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  // This function will be recreated on every render
+  function increment() {
+    setCount(count + 1);
+  }
+
+  // This function will be memoized by useCallback
+  const incrementCallback = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={incrementCallback}>Increment with useCallback</button>
+    </div>
+  );
+}
+```
 
 # 12. What are useRefs? What are some use cases?
+
+useRef is a hook in React that returns a mutable object that persists throughout the lifetime of the component. This object can be used to store values or references that need to be accessed between renders.
+
+Here are some use cases for useRef:
+
+1. Storing a reference to a DOM element: useRef can be used to store a reference to a DOM element so that it can be accessed or manipulated directly. For example, you can use useRef to store a reference to an input element and then use it to set the focus when the component mounts:
+
+```javascript
+import React, { useRef, useEffect } from "react";
+
+function MyComponent() {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+    </div>
+  );
+}
+```
+
+2. Storing previous state or props: useRef can also be used to store the previous value of a state variable or prop. This can be useful for comparing the current and previous values in order to trigger some behavior:
+
+```javascript
+import React, { useState, useRef, useEffect } from "react";
+
+function MyComponent({ data }) {
+  const [count, setCount] = useState(0);
+  const prevDataRef = useRef(null);
+
+  useEffect(() => {
+    if (data !== prevDataRef.current) {
+      setCount(count + 1);
+      prevDataRef.current = data;
+    }
+  }, [data]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+    </div>
+  );
+}
+```
+
+In this example, we are using useRef to store a reference to the previous value of the data prop. We can then compare the current and previous values in the useEffect hook and update the state if they are different.
+
+3. Storing a value that doesn't trigger a re-render: useRef can also be used to store a value that doesn't need to trigger a re-render. For example, you can use useRef to store a timer ID for a setInterval call:
+
+```javascript
+import React, { useRef, useEffect } from "react";
+
+function MyComponent() {
+  const intervalIdRef = useRef(null);
+
+  useEffect(() => {
+    intervalIdRef.current = setInterval(() => {
+      console.log("Tick");
+    }, 1000);
+
+    return () => clearInterval(intervalIdRef.current);
+  }, []);
+
+  return (
+    <div>
+      <p>Component content</p>
+    </div>
+  );
+}
+```
+
+In this example, we are using useRef to store a reference to the interval ID returned by setInterval. We can then clear the interval in the cleanup function of the useEffect hook.
+
+These are just a few examples of how useRef can be used in React. useRef is a versatile hook that can be used to store any value or reference that needs to persist throughout the lifetime of a component.
 
 # 13. What are callback refs?
 
 # 14. How does Context API work? What does it solve?
 
 # 15. What does useReducer do?
+
+useReducer is a hook in React that provides an alternative way to manage state in a component. It allows you to manage state through a reducer function, similar to how state is managed in a Redux store.
+
+The useReducer hook takes two arguments: a reducer function and an initial state value. The reducer function takes two arguments: the current state and an action object. It returns a new state object based on the action.
+
+Here's an example of how useReducer can be used:
+
+```javascript
+import React, { useReducer } from "react";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return { count: state.count + 1 };
+    case "DECREMENT":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  function handleIncrement() {
+    dispatch({ type: "INCREMENT" });
+  }
+
+  function handleDecrement() {
+    dispatch({ type: "DECREMENT" });
+  }
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+    </div>
+  );
+}
+```
+
+In this example, we have a reducer function that takes a state object and an action object and returns a new state object based on the action. We also have a MyComponent function that uses the useReducer hook to manage a count state variable with an initial value of 0.
+
+We have two functions, handleIncrement and handleDecrement, that dispatch actions to the reducer to increment or decrement the count. The dispatch function provided by useReducer is used to send actions to the reducer.
+
+When an action is dispatched, the reducer function is called with the current state and the action object. The switch statement in the reducer determines what action to take based on the action type and returns a new state object.
+
+The new state object returned by the reducer is then used as the new state value in the component.
+
+useReducer can be useful for managing complex state logic in a component. It allows you to keep the state management code separate from the rest of the component logic, and it can make it easier to reason about state changes in the component.
 
 # 16. When do you use useReducer vs useState?
 
@@ -253,34 +409,34 @@ Here's an example of how ReactDOM is used:
 
 javascript
 Copy code
-import React from 'react';
-import ReactDOM from 'react-dom';
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
 
 class ExampleComponent extends React.Component {
-constructor(props) {
-super(props);
-this.state = { count: 0 };
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={this.handleClick.bind(this)}>Click me</button>
+      </div>
+    );
+  }
 }
 
-handleClick() {
-this.setState({ count: this.state.count + 1 });
-}
+ReactDOM.render(<ExampleComponent />, document.getElementById("root"));
+```
 
-render() {
-return (
-
-<div>
-<h1>Count: {this.state.count}</h1>
-<button onClick={this.handleClick.bind(this)}>Click me</button>
-</div>
-);
-}
-}
-
-ReactDOM.render(
-<ExampleComponent />,
-document.getElementById('root')
-);
 In this example, we have a component called ExampleComponent that keeps track of a count in its state. Whenever the button is clicked, the count is incremented by one.
 
 The ReactDOM.render function is used to render the ExampleComponent onto the webpage. It takes two arguments: the component to be rendered (<ExampleComponent />), and the target DOM element on the webpage (document.getElementById('root')).
@@ -301,13 +457,14 @@ An optional list of child elements. These can be either strings representing tex
 
 Here's an example of using React.createElement() to create a simple "Hello, World!" element:
 
-php
-Copy code
+```javascript
 const element = React.createElement(
-'h1',
-{ className: 'greeting' },
-'Hello, World!'
+  "h1", // html Tags
+  { className: "greeting" }, // html attributes ot react props
+  "Hello, World!" // content of tag or another react component
 );
+```
+
 This creates a new h1 element with a className prop of "greeting" and a child text node of "Hello, World!".
 
 This element can then be rendered to the DOM using ReactDOM.render(). However, using JSX is a more common and convenient way to create React elements as it allows developers to write HTML-like syntax instead of calling React.createElement() explicitly.
@@ -324,16 +481,17 @@ children: An optional list of child elements. These can be either strings repres
 
 Here's an example of using React.createElement() with all three properties:
 
-javascript
-Copy code
+```javascript
 const element = React.createElement(
-'button', // type
-{
-className: 'btn', // props
-onClick: () => alert('Button clicked!')
-},
-'Click me!' // children
+  "button", // type
+  {
+    className: "btn", // props
+    onClick: () => alert("Button clicked!"),
+  },
+  "Click me!" // children
 );
+```
+
 In this example, React.createElement() creates a new button element with a className prop of "btn", an onClick event handler, and a child text node of "Click me!".
 
 Note that while the children property is optional, it's very common to include it in order to provide content for the element being created.
@@ -348,17 +506,19 @@ The "root" element is the container element where the React component is rendere
 
 For example, suppose we have the following React component:
 
-javascript
-Copy code
+```javascript
 function MyComponent() {
-return <h1>Hello, World!</h1>;
+  return <h1>Hello, World!</h1>;
 }
+```
+
 To render this component to the DOM, we need to call ReactDOM.render() and pass it the MyComponent element and a reference to the root element:
 
-javascript
-Copy code
+```javascript
 const rootElement = document.getElementById("root");
 ReactDOM.render(<MyComponent />, rootElement);
+```
+
 In this example, the rootElement variable references the div element with the id of "root" in the HTML document, which is the container element for our React application. The ReactDOM.render() method then renders the MyComponent component to this div, which causes the browser to display the "Hello, World!" message on the page.
 
 # 39. Explain what is JSX.(JavaScript XML)
@@ -375,24 +535,32 @@ JSX is not a separate language or templating engine; it is a syntax extension th
 
 Here's an example of a simple JSX expression that creates a div element with some text content:
 
-javascript
-Copy code
+```javascript
 const element = <div>Hello, World!</div>;
+```
+
 In this example, the JSX expression is enclosed in curly braces and assigned to a variable named element. This expression will be transpiled into a regular JavaScript function call, like this:
 
-csharp
-Copy code
+```javascript
 const element = React.createElement("div", null, "Hello, World!");
+```
+
 This createElement() call creates a new div element with the text content "Hello, World!". Note that the second argument to createElement() is null, which corresponds to the props object in the JSX expression. If we wanted to add some props to our div element, we could do so like this:
 
-javascript
-Copy code
+```javascript
 const element = <div className="my-class">Hello, World!</div>;
+```
+
 This JSX expression will be transpiled into a createElement() call that includes a props object with a className property:
 
-php
-Copy code
-const element = React.createElement("div", { className: "my-class" }, "Hello, World!");
+```javascript
+const element = React.createElement(
+  "div",
+  { className: "my-class" },
+  "Hello, World!"
+);
+```
+
 JSX is an optional feature in React, and it's possible to write React applications without using it. However, JSX makes it easier to write and read React components, and it's become a popular way to write React code.
 
 # 40. What is Props and State in React
@@ -405,16 +573,17 @@ Props
 
 Here's an example of a parent component passing props down to a child component:
 
-javascript
-Copy code
+```javascript
 function ParentComponent() {
-const name = "Alice";
-return <ChildComponent name={name} />;
+  const name = "Alice";
+  return <ChildComponent name={name} />;
 }
 
 function ChildComponent(props) {
-return <h1>Hello, {props.name}!</h1>;
+  return <h1>Hello, {props.name}!</h1>;
 }
+```
+
 In this example, the ParentComponent component passes the name variable as a prop to the ChildComponent. The ChildComponent then receives this prop as an argument in its function declaration and uses it to render the text "Hello, Alice!".
 
 State
@@ -423,23 +592,23 @@ State
 
 Here's an example of a component using state to manage its data:
 
-javascript
-Copy code
+```javascript
 function Counter() {
-const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-function handleClick() {
-setCount(count + 1);
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
 }
+```
 
-return (
-
-<div>
-<h1>Count: {count}</h1>
-<button onClick={handleClick}>Increment</button>
-</div>
-);
-}
 In this example, the Counter component uses the useState hook to create a state variable called count and a function called setCount to update it. The component renders the current value of count and a button that, when clicked, calls setCount to increment the value of count. When count is updated, React re-renders the component to reflect the new value.
 
 # 41. Explain how the state gets updated in react.
@@ -448,25 +617,25 @@ In React, the state of a component is updated using the setState method, which i
 
 Here's an example of how to update the state of a component:
 
-javascript
-Copy code
-import React, { useState } from 'react';
+```javascript
+import React, { useState } from "react";
 
 function Counter() {
-const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-function handleClick() {
-setCount(count + 1);
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
 }
+```
 
-return (
-
-<div>
-<h1>Count: {count}</h1>
-<button onClick={handleClick}>Increment</button>
-</div>
-);
-}
 In this example, the useState hook is used to create a state variable called count and a function called setCount to update it. The handleClick function is called when the button is clicked, and it updates the count state by calling setCount with the new value of count.
 
 When the state of a component changes, React automatically re-renders the component to reflect the new state. This means that any changes to the state will be immediately reflected in the UI. It's important to note that the setState method is asynchronous, meaning that state updates may not be applied immediately. React will batch state updates for performance reasons, so multiple calls to setState may be grouped together and applied in a single update. To ensure that you are using the most up-to-date state, you can use the useState hook to get the current value of the state variable.
@@ -479,11 +648,10 @@ For example, imagine you have a component that fetches data from an API and rend
 
 Here is an example of an HOC that adds a "loading" state to a component:
 
-javascript
-Copy code
+```javascript
 function withLoading(Component) {
-return function WithLoading(props) {
-const [isLoading, setLoading] = useState(true);
+  return function WithLoading(props) {
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
       setLoading(true);
@@ -492,21 +660,21 @@ const [isLoading, setLoading] = useState(true);
     }, []);
 
     return isLoading ? <div>Loading...</div> : <Component {...props} />;
-
-}
+  };
 }
 
 function MyComponent(props) {
-return <div>{props.data}</div>;
+  return <div>{props.data}</div>;
 }
 
 const MyComponentWithLoading = withLoading(MyComponent);
-
 // Now you can use MyComponentWithLoading just like you would use MyComponent
+```
+
 In this example, withLoading is an HOC that takes a component and returns a new component that has a loading state. The loading state is managed by the HOC, and the wrapped component receives it as a prop.
 
-
 # 42 . - What is Mounting a component in react?
+
 # What is Unmounting a component in react?
 
 In React, components are the building blocks of a user interface. Mounting and unmounting are two of the lifecycle methods that are called when a React component is added to or removed from the DOM.
