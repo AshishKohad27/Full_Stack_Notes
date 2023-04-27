@@ -12,9 +12,36 @@
 
 - The main difference between React.memo and React.useMemo is that React.memo is a higher-order component (HOC) that is used to memoize an entire component, while React.useMemo is a hook that is used to memoize a specific value or computation. React.memo is used to prevent unnecessary re-renders of a component by memoizing its props, while React.useMemo is used to memoize a specific value or computation within a component, so that it is only re-computed when its dependencies change.
 
+  src=> https://codesandbox.io/s/react-memo-nxb619?file=/src/App.js
+
 # 4. What are the parameters that react memo takes?
 
 - React.memo takes two parameters: the first is the component that it is memoizing, and the second is an optional comparison function that is used to determine whether the component should be re-rendered. The comparison function takes two arguments (the previous props and the new props) and should return a boolean value indicating whether the props have changed. If no comparison function is provided, React.memo uses a default shallow comparison of props to determine whether the component should be re-rendered.
+
+```javascript
+// Default Shallow Comparison
+import React from "react";
+
+function MyComponent(props) {
+  return <div>Hello, {props.name}!</div>;
+}
+
+export default React.memo(MyComponent);
+```
+
+```javascript
+import React from "react";
+
+function MyComponent(props) {
+  return <div>Hello, {props.name}!</div>;
+}
+
+function arePropsEqual(prevProps, nextProps) {
+  return prevProps.name === nextProps.name;
+}
+
+export default React.memo(MyComponent, arePropsEqual);
+```
 
 # 5. What are the different ways to apply useEffect?
 
@@ -60,6 +87,50 @@ useEffect(() => {
 }, [prop1]);
 ```
 
+src:- https://codesandbox.io/s/stopwatch-ehy9zj?file=/src/App.js
+
+```javascript
+// Example;
+import "./styles.css";
+import { useEffect, useState } from "react";
+
+export default function App() {
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    let intervalId;
+
+    //mounting Phase
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setTime(time + 10);
+      }, 100);
+    }
+
+    //Unmounting phase
+    return () => clearInterval(intervalId);
+  }, [time, isRunning]);
+
+  const handlePlayPause = () => {
+    setIsRunning(!isRunning);
+  };
+
+  const handleRest = () => {
+    setTime(0);
+    setIsRunning(false);
+  };
+  return (
+    <div className="App">
+      <h1>StopWatch</h1>
+      <h1>{time}</h1>
+      <button onClick={handlePlayPause}>{isRunning ? "Pause" : "Play"}</button>
+      <button onClick={handleRest}>Rest</button>
+    </div>
+  );
+}
+```
+
 # 5.1 useEffect is the combination of
 
 - useEffect is a React Hook that combines the functionality of multiple lifecycle methods from class components, including componentDidMount, componentDidUpdate, and componentWillUnmount.
@@ -77,7 +148,7 @@ useEffect(() => {
 # 6. How does Routing work with react?
 
 - React Router is a popular library for implementing routing in React applications. It allows you to handle navigation and rendering of different components based on the current URL.
-
+           
 - React Router works by providing a set of components that you can use to define your routes. These components are:
 
 1. <BrowserRouter>: This component is used to wrap your entire application and provides a history object that keeps track of the current URL.
@@ -119,7 +190,7 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-      </Switch>
+      </Switch> 
     </BrowserRouter>
   );
 }

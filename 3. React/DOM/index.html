@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <h1>Items:</h1>
+    <ul id="items">
+      <li>Item 1 <button class="delete-button">Delete</button></li>
+      <li>Item 2 <button class="delete-button">Delete</button></li>
+    </ul>
+    <button id="add-button">Add Item</button>
+
+    <script>
+      $(document).ready(function() {
+        $('#add-button').click(function() {
+          const newItem = `<li>Item ${$('#items').children().length + 1} <button class="delete-button">Delete</button></li>`;
+          $('#items').append(newItem);
+        });
+
+        $(document).on('click', '.delete-button', function() {
+          $(this).parent().remove();
+        });
+      });
+    </script>
+  </body>
+</html>

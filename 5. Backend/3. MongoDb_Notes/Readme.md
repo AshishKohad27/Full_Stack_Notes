@@ -97,7 +97,7 @@ db.orders.aggregate([
       from: "products",
       localField: "product_id",
       foreignField: "_id",
-      as: "product",
+      as: "product_info",
     },
   },
 ]);

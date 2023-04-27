@@ -381,7 +381,7 @@ src:- https://www.scaler.com/topics/authentication-authorization-and-accounting/
 
 - REST (Representational State Transfer) is a software architectural style for building web services. It is based on HTTP protocols and emphasizes the use of standard HTTP methods (such as GET, POST, PUT, DELETE) to manipulate resources, which are identified by unique URLs or URIs (Uniform Resource Identifiers). RESTful APIs (Application Programming Interfaces) are designed to be scalable, reliable, and easy to maintain.
 
-  -REST API is an API that follows a set of rules for an application and services to communicate with each other. As it is constrained to REST architecture, REST API is referred to as RESTful API. REST APIs provide a way of accessing web services in a flexible way without massive processing capabilities
+  - REST API is an API that follows a set of rules for an application and services to communicate with each other. As it is constrained to REST architecture, REST API is referred to as RESTful API. REST APIs provide a way of accessing web services in a flexible way without massive processing capabilities
 
 - A RESTful API is one that conforms to the principles of REST. In addition to using HTTP methods and URLs to manipulate resources, a RESTful API should also adhere to the following constraints:
 
@@ -719,3 +719,35 @@ src:- https://www.scaler.com/topics/throughput-in-computer-networks/
 ## What is a web socket?
 
 ## How do you build a system which is reliable?
+
+## what is the use of app.use(express.json()) in node js
+In Node.js, express.json() is a built-in middleware function in the Express framework that parses incoming requests with JSON payloads.
+
+When a client sends a POST, PUT, or PATCH request with a JSON payload to the server, the server needs to parse the incoming data and transform it into a JavaScript object that the application can use.
+
+The express.json() middleware function is used to do this automatically in Express. It parses the JSON payload in the request body and makes it available as the req.body property in the application code.
+
+Here's an example of how to use express.json() in an Express application:
+
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+// Middleware to parse incoming JSON payloads
+app.use(express.json());
+
+// Example route that accepts a JSON payload
+app.post('/users', (req, res) => {
+  const user = req.body;
+  // Do something with the user data
+  res.send('User created successfully');
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+In this example, the express.json() middleware function is used to parse incoming JSON payloads in the request body of the /users route. The parsed JSON data is then accessed through the req.body property in the route handler.
+
+Without using express.json(), you would need to manually parse the request body using the body-parser middleware or other means. express.json() simplifies this process and makes it easier to work with JSON data in an Express application.
