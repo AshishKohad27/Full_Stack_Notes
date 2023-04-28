@@ -148,7 +148,6 @@ export default function App() {
 # 6. How does Routing work with react?
 
 - React Router is a popular library for implementing routing in React applications. It allows you to handle navigation and rendering of different components based on the current URL.
-           
 - React Router works by providing a set of components that you can use to define your routes. These components are:
 
 1. <BrowserRouter>: This component is used to wrap your entire application and provides a history object that keeps track of the current URL.
@@ -190,7 +189,7 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-      </Switch> 
+      </Switch>
     </BrowserRouter>
   );
 }
@@ -245,6 +244,7 @@ function App() {
 # 11. What is useCallback?
 
 - useCallback is a hook in React that memoizes a function and returns a memoized version of it. This can improve performance in cases where a function is being passed down to child components as a prop, because it ensures that the function reference remains the same between renders if the dependencies have not changed. This can prevent unnecessary re-renders of child components. The dependencies array is similar to the one used in the useEffect hook, and specifies the values that the memoized function depends on.
+
 - useCallback is a hook in React that is used to memoize functions so that they are not recreated on each render of a component. This can help improve performance by reducing unnecessary re-renders of child components that depend on these functions.
 
 ```javascript
@@ -275,7 +275,7 @@ function MyComponent() {
 
 # 12. What are useRefs? What are some use cases?
 
-useRef is a hook in React that returns a mutable object that persists throughout the lifetime of the component. This object can be used to store values or references that need to be accessed between renders.
+useRef is a hook in React that returns a mutable object throughout the lifetime of the component. This object can be used to store values or references that need to be accessed between renders.
 
 Here are some use cases for useRef:
 
@@ -467,7 +467,7 @@ Babel is a popular JavaScript compiler that allows developers to write code in t
 Babel also has a plugin architecture that allows developers to add or modify its functionality, making it highly customizable. With Babel, developers can write code in the latest version of JavaScript without worrying about browser compatibility issues, which is a significant advantage when developing web applications.
 
 # 33. Can you write react without jsx?
-
+- Yes, src- [label](WithOut.jsx)
 # 34. How does Babel convert HTML code in React into valid code?
 
 - -Babel is a tool that lets you write your Javascript code using all the latest syntax and features, and run it in browser that may not support those features. Babel is a transpiler that will translate your modern JS code into an older version of Javascript that more browsers are able to understand.
