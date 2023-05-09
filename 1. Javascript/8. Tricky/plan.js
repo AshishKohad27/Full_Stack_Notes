@@ -66,3 +66,5 @@ let user = {
 console.log("department:", user.department);
 console.log("zip:", user.department.address.zip);
 console.log("city:", user.department.address.city)
+
+

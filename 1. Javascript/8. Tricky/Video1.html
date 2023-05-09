@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #container {
+      width: 400px;
+      height: 10px;
+      background-color: peru;
+      margin: 30px;
+      position: relative;
+    }
+    #container > div {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: purple;
+      position: absolute;
+      top: -10px;
+      left: -15px;
+    }
+    #container > div:first-child {
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: ease slider 5s infinite 10s;
+    }
+    #container:hover > div {
+      margin-left: 100px;
+      background-color: red;
+    }
+
+    @keyframes slider {
+      0% {
+        margin-left: 0px;
+        background-color: red;
+      }
+      10% {
+        margin-left: 40px;
+        background-color: green;
+      }
+      20% {
+        margin-left: 80px;
+        background-color: yellow;
+      }
+      30% {
+        margin-left: 120px;
+        background-color: purple;
+      }
+      40% {
+        margin-left: 160px;
+        background-color: palevioletred;
+      }
+      50% {
+        margin-left: 200px;
+        background-color: rebeccapurple;
+      }
+      60% {
+        margin-left: 240px;
+        background-color: palegreen;
+      }
+      70% {
+        margin-left: 280px;
+        background-color: olive;
+      }
+      80% {
+        margin-left: 320px;
+        background-color: red;
+      }
+      100% {
+        margin-left: 400px;
+        background-color: royalblue;
+      }
+    }
+    #popup {
+      width: 300px;
+      height: 200px;
+      background-color: aqua;
+      display: none;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      z-index: 10;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div></div>
+    </div>
+
+    <div id="popup"></div>
+    <button id="close">open</button>
+    <button id="open">close</button>
+  </body>
+  <script>
+    let popup = document.getElementById("popup");
+    let close = document
+      .getElementById("close")
+      .addEventListener("click", (e) => {
+        console.log(e);
+        popup.style.display = "block";
+      });
+    let open = document
+      .getElementById("open")
+      .addEventListener("click", (e) => {
+        console.log(e);
+        popup.style.display = "none";
+      });
+  </script>
+</html>
