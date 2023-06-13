@@ -468,6 +468,7 @@ Babel also has a plugin architecture that allows developers to add or modify its
 
 # 33. Can you write react without jsx?
 - Yes, src- [label](WithOut.jsx)
+
 # 34. How does Babel convert HTML code in React into valid code?
 
 - -Babel is a tool that lets you write your Javascript code using all the latest syntax and features, and run it in browser that may not support those features. Babel is a transpiler that will translate your modern JS code into an older version of Javascript that more browsers are able to understand.
@@ -477,9 +478,6 @@ Babel also has a plugin architecture that allows developers to add or modify its
 ReactDOM is a package in React that allows developers to manipulate and render the components of a web page in a browser. It provides a bridge between React's virtual DOM and the actual DOM in the browser. With ReactDOM, developers can take the components created with React and render them on a webpage, update their state, and re-render them as needed.
 
 Here's an example of how ReactDOM is used:
-
-javascript
-Copy code
 
 ```javascript
 import React from "react";

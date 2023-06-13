@@ -1,45 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     #light {
-        width: 100px;
-        height: 100px;
-        border: 1px solid black;
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
     }
-</style>
+    #container {
+      background-color: aqua;
+    }
+    span {
+      background-color: red;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
+    textarea {
+      background-color: yellow;
+      margin-top: 30px;
+    }
 
-<body>
+    /* flex */
+    .row {
+      display: flex;
+      width: 500px;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      background-color: rebeccapurple;
+      height: 200px;
+    }
+    .row > div {
+      width: 50px;
+      height: 50px;
+    }
+
+    .col-2 {
+      background-color: red;
+      flex: 2;
+    }
+
+    .col-7 {
+      flex: 1;
+      background-color: yellow;
+    }
+
+    .col-3 {
+      background-color: green;
+      flex: 2;
+    }
+  </style>
+
+  <body>
     <div id="light"></div>
     <button id="btn">Switch</button>
 
-</body>
+    <!-- inline Element -->
+    <div id="container">
+      Ashish
+      <span>Hello</span>
+      <textarea name="" id="" cols="30" rows="1">Kohad</textarea>
+    </div>
 
+    <!-- flex -->
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-7"></div>
+      <div class="col-3"></div>
+    </div>
+  </body>
 </html>
 <script>
-    let light = document.getElementById("light");
-    document.getElementById("btn").addEventListener("click", toggleSwitch("on", "off"));
-    function toggleSwitch(...arg) {
-        console.log('arg:', arg)
-        let index = 0;
-        return function Inner() {
-            if (index === arg.length) {
-                index = 0;
-            }
-            //return arg[index];
-            console.log('arg[index]:', arg[index])
-            if (arg[index] === "on") {
-                light.style.background = "yellow"
-            } else {
-                light.style.background = "white"
-            }
-            index++;
-        }
-    }
+  let light = document.getElementById("light");
+  document
+    .getElementById("btn")
+    .addEventListener("click", toggleSwitch("on", "off"));
+  function toggleSwitch(...arg) {
+    console.log("arg:", arg);
+    let index = 0;
+    return function Inner() {
+      if (index === arg.length) {
+        index = 0;
+      }
+      //return arg[index];
+      console.log("arg[index]:", arg[index]);
+      if (arg[index] === "on") {
+        light.style.background = "yellow";
+      } else {
+        light.style.background = "white";
+      }
+      index++;
+    };
+  }
 </script>
