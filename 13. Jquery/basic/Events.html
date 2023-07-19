@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="dbl">Doubled Clicked Event (dblclick)</h1>
+    <h1 class="mouseeneter">MouseEnter Event</h1>
+    <h1 class="hover">Hover Event</h1>
+    <h1 class="on">On Event</h1>
+
+    <div>
+        <p id="wiki">
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.
+        </p>
+    </div>
+    <div>
+        <button id="btn">Toggle</button>
+        <p id="wiki2">
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.
+        </p>
+    </div>
+
+    <div>
+        <button id="fadeout">fadeOut</button>
+        <button id="fadein">fadeIn</button>
+        <button id="fadetoggle">fadeToggle</button>
+        <button id="fadeto">fadeTo</button>
+        <p id="wiki3">
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.
+        </p>
+    </div>
+
+    <div>
+        <button id="slideup">SlideUp</button>
+        <button id="slidedown">SlideDown</button>
+        <button id="slidetoggle">SlideToggle</button>
+        <p id="wiki4">
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.<br />
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.
+        </p>
+    </div>
+
+    <div>
+        <!-- Animation -->
+        <button id="stop">Stop</button>
+        <p id="wiki5">
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.<br />
+            A wiki (/ˈwɪki/ (listen) WIK-ee) is an online hypertext publication
+            collaboratively edited and managed by its own audience, using a web
+            browser. A typical wiki contains multiple pages for the subjects or
+            scope of the project, and could be either open to the public or limited
+            to use within an organization for maintaining its internal knowledge
+            base.
+        </p>
+    </div>
+</body>
+<script src="../jquery/code.jquery.com_jquery-3.7.0.min.js"></script>
+<script>
+    /**
+     * Events In jQuery
+     * 1. MouseEvent = click, double click, mouse enter, mouse leave, mouse over
+     * 2. KeyboardEvent = keypress, keyup, keydown
+     * 3. FormEvent = submit , change, focus, blur
+     * 4. document/window Event = load, resize, scroll, unload
+     */
+    $(document).ready(function () {
+        $(".dbl").dblclick(function () {
+            console.log("dblclick");
+        });
+
+        $(".mouseeneter").mouseenter(function () {
+            console.log("MouseEnter");
+        });
+        $(".hover").hover(function () {
+            console.log(this);
+        });
+
+        // Demo : on method
+        $(".on").on({
+            click: function () {
+                console.log("Click Event: " + this);
+            },
+            mouseenter: function () {
+                console.log("Mouse Enter Event: " + this);
+            },
+        });
+
+        // Hide and Show
+        $("#wiki").hide(2000, function () {
+            console.log("Hidden Done");
+        });
+        $("#wiki").show(2000, function () {
+            console.log("Show Done");
+        });
+
+        // Toggle
+        $("#btn").click(function () {
+            $("#wiki2").toggle(1000);
+        });
+    });
+
+    //  Fade
+    $(document).ready(function () {
+        $("#fadeout").click(function () {
+            $("#wiki3").fadeOut(1000, function () {
+                console.log("FadeOut Done");
+            });
+        });
+
+        $("#fadein").click(function () {
+            $("#wiki3").fadeOut(1000);
+        });
+
+        $("#fadetoggle").click(function () {
+            $("#wiki3").fadeToggle(1000);
+        });
+        $("#fadeto").click(function () {
+            $("#wiki3").fadeTo(1000);
+        });
+    });
+
+    // Slide
+    $(document).ready(function () {
+        $("#slideup").click(function () {
+            $("#wiki4").slideUp("slow");
+        });
+        $("#slidedown").click(function () {
+            $("#wiki4").slideDown("slow");
+        });
+        $("#slidetoggle").click(function () {
+            $("#wiki4").slideToggle("slow");
+        });
+    });
+
+    // Animations
+    $(document).ready(function () {
+        $("#wiki5").animate(
+            {
+                opacity: 0.5,
+            },
+            2000
+        );
+        $("#wiki5").animate(
+            {
+                opacity: 1,
+            },
+            2000
+        );
+        $("#wiki5").animate(
+            {
+                width: "300px",
+            },
+            12000
+        );
+        $("#stop").click(function () {
+            $("#wiki5").stop();
+        });
+    });
+
+    /**
+     * innerHTML: html
+     * innerText: text
+     * EmptyText: empty
+     * RemoveElement: remove
+     * addClass
+     * removeClass
+     * toggleClass
+     * style: css('backgroyund-color','red')
+    */
+</script>
+
+</html>

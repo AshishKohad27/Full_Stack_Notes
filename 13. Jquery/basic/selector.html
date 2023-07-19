@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p-1">Hello World 1</p>
+    <p class="p-2">Hello World 2</p>
+    <p>Hello World 3</p>
+    <p>Hello World 4</p>
+</body>
+<script src="../jquery/code.jquery.com_jquery-3.7.0.min.js"></script>
+<script>
+    /*
+    * There are three type of selector
+    1. Element selector
+    2. Id selector
+    3. Class selector
+    */
+    // when my code will ready only then this will run
+    // $(function () {
+    $(document).ready(function () {
+
+        // syntax:  $('selector').action()
+        /*
+        $('p').click((event) => {
+            console.log("Selector when Clicking on p tag");
+    
+            // Inbuild function : hide
+            // $('p').hide();
+    
+            // If we want to hide individual P tage we have to use this
+            $(event.target).hide();
+        })
+        //  or
+    */
+        $('p').click(function () {
+
+            //1. Inbuild function : hide
+            // $('p').hide();
+
+            //2. Inner Html
+            console.log("Selector when Clicking on p tag", $(this).html());
+
+            //3. setting new Content 
+            /*   $(this).html('New content')
+               $('#p-1').html('New content 1')
+               $('.p-2').html('New content 2') */
+
+            //4. If we want to hide individual P tage we have to use this
+            // $(this).hide();
+
+
+        })
+
+        //  2. Id Selector
+        $('#p-1').click(function () {
+            console.log("Id Selector", this)
+        })
+
+        //  3. Id Selector
+        $('.p-2').click(function () {
+            console.log("Class Selector:", this.innerText.toUpperCase())
+        })
+    })
+
+
+
+</script>
+
+</html>
