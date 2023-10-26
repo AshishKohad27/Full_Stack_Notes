@@ -5,4 +5,4 @@
 -- quantity int
 -- );
 -- SHOW TABLES;
-DESC pastries;-- 
+-- DESC pastries;

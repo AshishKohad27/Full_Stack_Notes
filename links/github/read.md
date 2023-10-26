@@ -1,3 +1,4 @@
+# …or create a new repository on the command line
 echo "# GetCooking" >> README.md
 git init
 git add README.md

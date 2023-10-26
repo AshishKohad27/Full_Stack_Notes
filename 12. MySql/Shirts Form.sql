@@ -50,7 +50,7 @@
 -- UPDATE shirts SET last_worn=0
 -- WHERE last_worn=15;
 
--- 11. Update All white shirt changes sizeto 'XS' and color to "off white"
+-- 11. Update All white shirt changes size to 'XS' and color to "off white"
 -- SET SQL_SAFE_UPDATES=0;
 -- UPDATE shirts SET shirt_size="XS", color="Off white"
 -- WHERE color="white";
@@ -68,4 +68,4 @@
 -- 15. drop table
 -- DROP TABLE shirts;
 
-SELECT * FROM shirts;
+-- SELECT * FROM shirts;
