@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back To Top</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    section {
+        width: 100%;
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        text-transform: uppercase;
+    }
+
+    .section1 {
+        background-color: red;
+    }
+
+    .section2 {
+        background-color: yellow;
+    }
+
+    .section3 {
+        background-color: teal;
+    }
+
+    .section4 {
+        background-color: royalblue;
+    }
+
+    .to-top {
+        position: fixed;
+        bottom: 16px;
+        right: 32px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
+    .to-top.active {
+        pointer-events: auto;
+        opacity: 1;
+        bottom: 32px;
+    }
+</style>
+
+<body>
+    <section class="section1">Section 1</section>
+    <section class="section2">Section 2</section>
+    <section class="section3">Section 3</section>
+    <section class="section4">Section 4</section>
+
+    <a href="#" class="to-top">
+        <svg width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink=" http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 450 450"
+            style="enable-background:new 0 0 450 450;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill: #FFFFFF;
+                }
+
+                .st1 {
+                    fill: #00B900;
+                }
+            </style>
+            <g>
+                <g id="Ellipse_1">
+                    <g>
+                        <circle class="st0" cx="225" cy="225" r="210.16" />
+                    </g>
+                    <g>
+                        <path class="st1" d="M225,435.16c-115.89,0-210.16-94.28-210.16-210.16c0-115.89,94.28-210.16,210.16-210.16
+    S435.16,109.11,435.16,225C435.16,340.89,340.89,435.16,225,435.16z M225,41.52C123.83,41.52,41.52,123.83,41.52,225
+    c0,101.17,82.31,183.48,183.48,183.48S408.48,326.17,408.48,225C408.48,123.83,326.17,41.52,225,41.52z" />
+                    </g>
+                </g>
+                <polygon class="st1"
+                    points="225.01,140.29 130.42,276.31 168.06,274.13 225.02,191.63 282.99,275.3 318.66,274.96 	" />
+            </g>
+        </svg>
+    </a>
+</body>
+
+
+<!-- Jquery Cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $('.to-top').addClass('active');
+            } else {
+                $('.to-top').removeClass('active');
+            }
+        })
+    })
+</script>
+
+</html>
