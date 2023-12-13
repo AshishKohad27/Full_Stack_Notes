@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endless Runner</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        background-color: #111;
+    }
+
+    #game {
+        width: 700px;
+        height: 250px;
+        background-color: navy;
+        position: absolute;
+        top: 50px;
+    }
+
+    #chicken {
+        width: 60px;
+        height: 60px;
+        background-color: red;
+        position: relative;
+        top: 190px;
+        left: 100px;
+    }
+
+    .animate {
+        animation: jump 0.5s linear 0s;
+    }
+
+    @keyframes jump {
+        0% {
+            top: 150px;
+        }
+
+        30% {
+            top: 100px;
+        }
+
+        70% {
+            top: 100px;
+        }
+
+        100% {
+            top: 150px;
+        }
+    }
+
+    #obstacle {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        position: relative;
+        top: 150px;
+        left: 100%;
+        animation: block 4s infinite 0s;
+    }
+
+    @keyframes block {
+        0% {
+            left: 680px;
+        }
+
+        100% {
+            left: -680px;
+        }
+    }
+
+    #ground {
+        width: 700px;
+        height: 50px;
+        position: absolute;
+        top: 300px;
+        background-color: brown;
+    }
+</style>
+
+<body>
+    <div id="score"></div>
+    <div id="game">
+        <div id="chicken"></div>
+        <!-- <div id="obstacle"></div> -->
+    </div>
+    <div id="ground"></div>
+
+    <button id="reload">Reload</button>
+    <script>
+        let chicken = document.getElementById("chicken");
+        let obstacle = document.getElementById("obstacle");
+        let counter = 0;
+
+        let reload = document.getElementById('reload').addEventListener('click', function () {
+            location.href = location.href;
+        });
+
+
+        // function jump() {
+        //     if (chicken.classList !== "animate") {
+        //         chicken.classList.add("animate");
+        //     }
+
+        //     setTimeout(function () {
+        //         chicken.classList.remove("animate");
+        //         counter++;
+        //     }, 500);
+        // }
+
+        // Function to handle the jump when the "Up" key is pressed
+        function handleJump(event) {
+            if (event.key === "ArrowUp" && chicken.classList !== "animate") {
+                chicken.classList.add("animate");
+
+                setTimeout(function () {
+                    chicken.classList.remove("animate");
+                    counter++;
+                }, 500);
+            }
+        }
+
+        // Add an event listener to the document to detect the "Up" key press
+        document.addEventListener("keydown", handleJump);
+
+        let lose = setInterval(function () {
+            // console.log("counter", counter)
+            let score = document.getElementById('score')
+            score.innerHTML = counter;
+            let chickenTop = parseInt(window.getComputedStyle(chicken).getPropertyValue("top"));
+
+            // Check if obstacle is not null before accessing its properties
+            if (obstacle) {
+                let blockLeft = obstacle.offsetLeft;
+
+                if (blockLeft < 20 && blockLeft > 0 && chickenTop >= 130) {
+                    obstacle.style.animation = "none";
+                    obstacle.style.display = "none";
+                    alert('Game Over!!!');
+                    counter = 0;
+                }
+            }
+        }, 10);
+
+    </script>
+</body>
+
+</html>

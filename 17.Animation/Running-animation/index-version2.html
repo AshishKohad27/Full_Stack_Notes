@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-outer {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-container {
+            width: 100%;
+            max-width: 1200px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            width: 100%;
+            background-image: url('./sky.png');
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Building Wrapper */
+        .building-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Clouds */
+        .info-clouds {
+            margin-top: 20px;
+            width: 3300px;
+            height: 300px;
+            background-color: red;
+            transform: translate(-100px);
+            animation: clouds_anim 2s ease-in-out infinite;
+            display: flex;
+        }
+
+        @keyframes clouds_anim {
+
+            to {
+                transform: translate(-3300px);
+            }
+        }
+
+        .info-clouds-all {
+            width: 600px;
+            height: 100%;
+        }
+
+        /* Building Content */
+        .building-content {
+            position: absolute;
+            top: 80px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            font-size: 35px;
+        }
+
+        /* Buildings */
+        .info-building {
+            position: absolute;
+            background-image: url('./bg.png');
+            width: 100%;
+            height: 100%;
+            background-position: left;
+            background-size: cover;
+            bottom: -60px;
+        }
+
+        /* Street */
+        .info-street {
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 180px;
+        }
+
+        .info-street-path {
+            width: 100%;
+            height: 180px;
+        }
+
+        /* Character */
+        .info-character {
+            position: absolute;
+            bottom: 50px;
+            left: 0px;
+            z-index: 2;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .info-character-man {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info-outer">
+        <div class="site-container">
+            <div class="info-inner">
+                <!-- Bulding Content -->
+                <div class="building-content" id="buildingContent">Content for Building 1</div>
+
+                <!-- Building Wrapper -->
+                <div class="building-wrapper building-wrapper-js">
+                    <!-- Clouds -->
+                    <div class="info-clouds">
+                        <img src="./Cloud1.png" alt="" class="info-clouds-all info-clouds-1">
+                        <img src="./Cloud2.png" alt="" class="info-clouds-all info-clouds-1">
+                        <img src="./Cloud1.png" alt="" class="info-clouds-all info-clouds-1">
+                    </div>
+                    <!-- Tree -->
+                    <div class="info-tree"></div>
+                    <!-- Tree Shadow -->
+                    <div class="info-tree-shadow"></div>
+                    <!-- Buildings Loops -->
+                    <div class="info-building info-building-js"></div>
+                </div>
+
+                <!-- Character -->
+                <div class="info-character">
+                    <img class="info-character-man" src="man.gif" alt="Man">
+                </div>
+
+                <!-- Street -->
+                <div class="info-street">
+                    <img class="info-street-path" src="street-01.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Move the background elements
+    // let background = document.querySelector('.info-building-js');
+    let background = document.querySelector('.info-building-js');
+    let position = 0;
+    let speed = 1; // Adjust the speed as needed
+
+    function moveBackground() {
+        position -= speed;
+        background.style.backgroundPosition = position + 'px 0';
+
+        if (position <= -3500) {
+            position = 0;
+        }
+
+        buildingChangeableText(position);
+
+        requestAnimationFrame(moveBackground);
+    }
+
+    // Start moving the background
+    moveBackground();
+
+
+    function buildingChangeableText(position) {
+        let buildingContent = document.getElementById('buildingContent');
+        let store = Math.abs(position);
+
+        const buildingData = [
+            { limit: 400, content: 'Content for Building 2' },
+            { limit: 1050, content: 'Content for Building 3' },
+            { limit: 1550, content: 'Content for Building 4' },
+            { limit: 2050, content: 'Content for Building 5' },
+            { limit: 2350, content: 'Content for Building 6' },
+            { limit: 2800, content: 'Content for Building 7' },
+            { limit: 3350, content: 'Content for Building 8' }
+        ];
+
+        let buildingContentstore = 'Content for Building 1'; // Default content
+
+        for (const building of buildingData) {
+            if (store <= building.limit) {
+                buildingContentstore = building.content;
+                break; // Break the loop once the condition is met
+            }
+        }
+
+        // Set buildingContent to the corresponding content based on the store value
+        console.log("buildingContentstore:", buildingContentstore)
+        buildingContent.innerText = buildingContentstore;
+    }
+</script>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EndLess Game</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .game-outer {
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .site-container {
+
+        width: 100%;
+        max-width: 1200px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .game-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('https://achieveee.com/bg-animation/game/images/game-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .startend-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: calc(50% - 30px);
+        left: calc(50% - 100px);
+
+    }
+
+    .game-start {
+        background-color: #fff;
+        width: 200px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 20px;
+        position: absolute;
+        z-index: 10;
+        cursor: pointer;
+    }
+
+    .game-score {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: #fff;
+        font-size: 20px;
+        padding: 5px 30px;
+        border: 1px solid black;
+    }
+
+    .game-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .game-character {
+        background-color: yellow;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 300px;
+        left: 100px;
+        transform: all 0.5s;
+    }
+
+    .animate {
+        animation: jump 0.5s linear 0s;
+    }
+
+    @keyframes jump {
+        0% {
+            top: 100px;
+
+        }
+
+        30% {
+            top: 170px;
+
+        }
+
+        70% {
+            top: 230px;
+
+        }
+
+        100% {
+            top: 280px;
+
+        }
+    }
+
+    .game-character img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .game-obstacle {
+        background-color: green;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        top: 340px;
+        right: 0px;
+    }
+
+    .game-obstacle--animation {
+        animation: block 3s infinite 0s;
+    }
+
+    @keyframes block {
+        0% {
+            left: 1200px;
+        }
+
+        100% {
+            left: -1200px;
+        }
+    }
+
+
+    .game-obstacle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <section class="game-outer">
+        <div class="site-container">
+            <div class="game-inner">
+                <div class="startend-container">
+                    <button class="game-start">Start</button>
+                    <div class="game-end"></div>
+                </div>
+                <div class="game-score">Score: <span id="score">0</span></div>
+                <div class="game-container">
+                    <div class="game-character">
+                        <img src="https://achieveee.com/bg-animation/game/images/character.png" alt="">
+                    </div>
+                    <div class="game-obstacle">
+                        <!-- <img src="https://achieveee.com/bg-animation/game/images/stone.png" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let game_start = document.querySelector('.game-start');
+        let game_end = document.querySelector('.game-end');
+        let character = document.querySelector('.game-character');
+        let obstacle = document.querySelector('.game-obstacle');
+        let scoreDisplay = document.getElementById('score');
+        let counter = 0;
+
+        game_start.addEventListener('click', function () {
+            console.log("Game Start!!!");
+            obstacle.classList.add('game-obstacle--animation');
+            game_start.style.display = 'none';
+
+            // Start the main game loop
+            startGame();
+        });
+
+        game_end.addEventListener('click', function () {
+            console.log("Game End!!!");
+            obstacle.classList.remove('game-obstacle--animation');
+            game_start.style.display = 'block';
+            resetGame();
+        });
+
+        function handleJump(event) {
+            if (event.key === "ArrowUp" && character.classList !== "animate") {
+                character.classList.add("animate");
+
+                console.log("Animation");
+                setTimeout(function () {
+                    character.classList.remove("animate");
+                    counter++;
+                }, 500);
+            }
+        }
+
+        document.addEventListener("keydown", handleJump);
+
+        function startGame() {
+            let gameInterval = setInterval(function () {
+                console.log('counter:', counter)
+                // Update the score display
+                scoreDisplay.innerHTML = counter;
+
+                // Get the current position of the character
+                let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+
+                // Get the current position of the obstacle
+                let obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
+
+                // Check for collision
+                if (obstacleLeft > 0 && obstacleLeft < 80 && characterTop >= 230) {
+                    endGame();
+                    clearInterval(gameInterval);
+                }
+            }, 10);
+        }
+
+        function endGame() {
+            // Stop the obstacle animation and hide it
+            obstacle.style.animation = "none";
+            obstacle.style.display = "none";
+
+            // Display a game over alert
+            alert('Game Over!!!');
+
+            // Reset the score to 0
+            counter = 0;
+            location.href = location.href;
+            // Reset the game
+            resetGame();
+        }
+
+        function resetGame() {
+            // Reset the character and obstacle positions
+            character.style.top = '300px';
+            obstacle.style.left = '1200px';
+
+            // Show the start button
+            game_start.style.display = 'block';
+
+            //Reset Score
+            scoreDisplay.innerHTML = counter;
+
+        }
+    });
+
+</script>
+
+</html>

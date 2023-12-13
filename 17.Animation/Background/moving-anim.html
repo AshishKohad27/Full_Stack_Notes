@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Animation</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        /* overflow-x: hidden; */
+        /* overflow-y: auto; */
+    }
+
+    .animation-section {
+        /* height: 200px; */
+        width: 5120px;
+        position: relative;
+    }
+
+    .animation-section::before {
+        content: "";
+        /* background-image: url('./img/street-01.png'); */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: bg-animation 20s linear infinite;
+    }
+
+
+    .animation-section::after {
+        content: "";
+        background-image:
+            url('https://achieveee.com/bg-animation/Background-1/images/bg.png'),
+            linear-gradient(0deg, rgba(64, 59, 59, 1) 15%, rgba(2, 8, 17, 1) 100%);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        animation: bg-animation 100s linear infinite;
+        opacity: 0.5;
+    }
+
+    @keyframes bg-animation {
+        to {
+            transform: translateX(-2560px);
+        }
+    }
+
+    .animation-section_character {
+        margin-top: 35px;
+        width: 64px;
+        height: 64px;
+        background-color: red;
+        /* position: relative; */
+    }
+
+    .animation-section_character img {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <section class="animation-section">
+        <h1>
+            Character Animation with Parallax Background using HTML & CSS
+        </h1>
+        <div class="animation-section_character">
+            <img class="animation-section_character-sprites" src="./img/man.gif" alt="char">
+        </div>
+    </section>
+    <div class="anim-path">
+        <img src="./img/street-01.png" alt="">
+    </div>
+
+
+</body>
+
+</html>
