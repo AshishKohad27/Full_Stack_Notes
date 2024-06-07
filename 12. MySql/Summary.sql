@@ -1,27 +1,27 @@
--- Summary 
+ -- Summary 
 -- 1. Show all DataBases 
--- show databases;
+show databases;
 
 -- 2. Create DB
--- CREATE DATABASE dog_site;
+CREATE DATABASE IF NOT EXISTS dog_site;
 
 -- 3. Drop DB
 -- DROP DATABASE dog_site;
 
 -- 4. Use DB: select DB so that we can do CRUD further.
--- use dog_site;
+use dog_site;
 
 -- 5. Select DB: 
--- SELECT DATABASE();
+SELECT DATABASE();
 
 -- 6. Table Creation inside DB : Model
--- CREATE TABLE cats(
--- 	name VARCHAR(100),
--- 	age INT
--- );
+CREATE TABLE IF NOT EXISTS cats(
+	name VARCHAR(100),
+	age INT
+);
 
 -- 7. Show Tables
--- SHOW TABLES;
+SHOW TABLES;
 
 -- 8. Inside Tables
 -- SHOW COLUMNS FROM cats;
@@ -34,7 +34,7 @@
 /* Inserting Data */
 
 -- 10. Adding Data to your table
--- INSERT INTO cats(name,age) VALUES ('Jetson',7);
+INSERT INTO cats(name,age) VALUES ('Jetson',7);
 
 -- 11. Showing all data inside table
 -- SELECT * FROM cats;
@@ -90,7 +90,8 @@
 -- 19. Update : update safe mode;
 -- SET SQL_SAFE_UPDATES = 0;
 -- SHOW VARIABLES LIKE "sql_safe_updates";
--- UPDATE unique_cats SET age=100 WHERE age=1;
+-- UPDATE unique_cats SET age=12 WHERE age=1252;
+-- SELECT * FROM unique_cats;
 
 -- SELECT DATABASE();
 -- use dog_site;
