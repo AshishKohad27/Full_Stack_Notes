@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Example</title>
+    <style>
+        /* CSS styles can be placed here for customization */
+        #location-info {
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="location-info">
+        <h2>Location Information</h2>
+        <p id="latitude">Latitude: </p>
+        <p id="longitude">Longitude: </p>
+        <button id="getLocationBtn">Get Current Location</button>
+    </div>
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include your custom JavaScript file -->
+    <script>
+        $(document).ready(function () {
+            // Function to handle getting location
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+
+            // Function to show position
+            function showPosition(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Update HTML elements with location data
+                $("#latitude").text("Latitude: " + latitude);
+                $("#longitude").text("Longitude: " + longitude);
+            }
+
+            // Function to handle errors
+            function showError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("The request to get user location timed out.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert("An unknown error occurred.");
+                        break;
+                }
+            }
+
+            // Event listener for the button click
+            $("#getLocationBtn").click(function () {
+                getLocation();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
