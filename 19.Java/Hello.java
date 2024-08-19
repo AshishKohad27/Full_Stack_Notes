@@ -1,31 +1,6 @@
-
-class Calc
-{
-    public int add(int n1, int n2)
-    {
-        return n1 + n2;
-    }
-}
-
-class AdvCalc
-{
-    public int add(int n1, int n2)
-    {
-        return n1 + n2 + 10;
-    }
-}
-
 class Hello {
     public static void main(String args[]) {
-      // when we have same method in both classes (i.e. in parent and child)
-      // then child method will override that method which is present in parent class
-      // now we are calling add method
-
-      AdvCalc obj = new AdvCalc();
-      int r1 = obj.add(5,10); 
-      // parent result: 15 
-      // child result: 25 // override value 
-      System.out.println(r1); 
+     
 
     }
 }
