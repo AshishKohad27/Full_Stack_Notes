@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .img-con {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .img-con img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Default state */
+    .img-con img:first-child {
+        opacity: 1;
+    }
+
+    .img-con :nth-child(2) {
+        opacity: 0;
+    }
+
+    /* Hover effect only if both images exist */
+    .img-con:hover img:nth-child(2) {
+        opacity: 1;
+    }
+
+    .img-con:hover img:nth-child(1):not(:only-child) {
+        opacity: 0;
+    }
+
+    /* This will apply only if the <p> element is the only child */
+    p:only-child {
+        color: green;
+    }
+
+    /* This will not apply if the <p> element has siblings */
+    p:not(:only-child) {
+        color: red;
+    }
+</style>
+
+<body>
+    <div class="img-con">
+        <img class="img-1" src="./Carousel_2.png" alt="">
+        <!-- If img-2 is present, the hover effect will work -->
+        <!-- <img class="img-2" src="./Carousel_3.png" alt=""> -->
+    </div>
+
+    <div class="container">
+        <p class="single">I am the only child</p>
+    </div>
+
+    <div class="container">
+        <p class="not-single">I am not the only child</p>
+        <p>Another sibling</p>
+    </div>
+
+</body>
+
+</html>
