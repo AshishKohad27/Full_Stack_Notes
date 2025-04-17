@@ -184,3 +184,4 @@ setInterval(function () {
 ## function 
 a function in javascript  ia a set of statments that perform a task or calculatea value
 it should take some input and return an output where there is some obvious relationship between the input and the output
+
