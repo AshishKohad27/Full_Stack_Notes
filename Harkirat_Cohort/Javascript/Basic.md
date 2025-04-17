@@ -167,3 +167,20 @@ setInterval(function () {
     console.log(clock);
 }, interval)
 ```
+## Loop
+- when we have to use repited logic then we use loops
+
+```javascript
+    let ans = 0;
+    for (let i = 0; i <= 50; i++) {
+        ans += i;
+    }
+    console.log("ans: ", ans);
+```
+- let i = 0 -> initialized
+- i <= 50 -> loop limit or we give condition 
+- i++ -> how to increased or loop 
+
+## function 
+a function in javascript  ia a set of statments that perform a task or calculatea value
+it should take some input and return an output where there is some obvious relationship between the input and the output
