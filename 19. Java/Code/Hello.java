@@ -1,6 +1,3 @@
-# This:- this represent current object
-
-```java
 // InCapsulation
 class Human {
     // this private variable not accessable direct to any one
@@ -80,4 +77,3 @@ class Hello {
         System.out.println(obj1.getName() + " : " + obj1.getAge());
     }
 }
-```
