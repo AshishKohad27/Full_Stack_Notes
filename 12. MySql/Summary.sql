@@ -98,3 +98,4 @@ INSERT INTO cats(name,age) VALUES ('Jetson',7);
 -- SHOW TABLES;
 -- SELECT * FROM unique_cats;
 -- -- DESC unique_cats;
+
