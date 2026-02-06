@@ -1,11 +1,11 @@
 -- 0. DROP DATABASE
-DROP DATABASE library_system;
+DROP DATABASE library_db;
 
 -- 📚 1. Create database (only if it doesn't exist)
-CREATE DATABASE IF NOT EXISTS library_system;
+CREATE DATABASE IF NOT EXISTS library_db;
 
 -- Use the database
-USE library_system;
+USE library_db;
 
 -- 👤 2. Users table: Stores all users (admins & members)
 CREATE TABLE IF NOT EXISTS users (
@@ -126,7 +126,10 @@ INSERT INTO books (title, author, isbn, published_year, total_copies, available_
 ('The Mystery of the Blue Train', 'Agatha Christie', '9780007120825', 1928, 5, 3, 10);
 
 INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, due_date, status) VALUES
-(2, 1, '2025-09-01 10:00:00', '2025-09-10 15:00:00', '2025-09-15 23:59:59', 'returned'),
+-- Due soon
+(2, 6, '2026-25-08 11:00:00', NULL, '2026-02-29 11:00:00', 'borrowed'),
+
+ (2, 1,  '2025-09-01 10:00:00', '2025-09-10 15:00:00', '2025-09-15 23:59:59', 'returned'),
 (3, 2, '2025-09-05 14:30:00', NULL, '2025-10-05 23:59:59', 'borrowed'),
 (4, 3, '2025-09-15 09:00:00', '2025-09-20 11:00:00', '2025-09-30 23:59:59', 'returned'),
 (5, 4, '2025-09-25 16:00:00', NULL, '2025-10-25 23:59:59', 'borrowed'),
@@ -152,8 +155,11 @@ INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, due_date
 (7, 24, '2025-10-07 12:30:00', NULL, '2025-10-25 23:59:59', 'borrowed'),
 (8, 15, '2025-09-30 10:00:00', '2025-10-05 12:00:00', '2025-10-12 23:59:59', 'returned');
 
+INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, due_date, status) VALUES
+(2, 5, '2026-1-25 11:00:00', NULL, '2026-01-27 11:00:00', 'borrowed');
+
 -- 7. Drop Tables
--- DROP TABLE users;
+DROP TABLE users;
 
 -- A. Basic SELECT Queries
 -- 1 Show all books in the library.
