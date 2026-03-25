@@ -1,0 +1,237 @@
+Polymorphism => Poly (Many) + Morph (Forms) = Many Forms
+
+- Same method name, but behaves DIFFERENTLY depending on the object
+- Think of it like a "sound" button - press it on a Dog it barks, press it on a Cat it meows
+
+---
+
+## 1. Compile-Time Polymorphism (Method Overloading)
+
+- Same method name, DIFFERENT parameters (number or type)
+- Java decides which method to call at COMPILE time
+
+```java
+class Calculator
+{
+    // same name "add" but different parameters
+    int add(int a, int b)           { return a + b; }         // 2 ints
+    int add(int a, int b, int c)    { return a + b + c; }     // 3 ints
+    double add(double a, double b)  { return a + b; }         // 2 doubles
+}
+
+class Hello {
+    public static void main(String args[]) {
+        Calculator calc = new Calculator();
+
+        calc.add(2, 3);        // calls add(int, int)       --> 5
+        calc.add(2, 3, 4);    // calls add(int, int, int)  --> 9
+        calc.add(2.5, 3.5);   // calls add(double, double) --> 6.0
+
+        // Java picks the right method by looking at arguments - this happens during compilation
+    }
+}
+```
+
+**Key Point:** Same class, same method name, different parameters
+
+---
+
+## 2. Runtime Polymorphism (Method Overriding) - MOST IMPORTANT
+
+- Parent class reference + Child class object
+- Java decides which method to call at RUNTIME (when program runs)
+
+### Simple Example - Animal Sounds
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {                                  // OVERRIDES parent's sound()
+        System.out.println("Dog: Bark Bark!");
+    }
+}
+
+class Cat extends Animal {
+    void sound() {                                  // OVERRIDES parent's sound()
+        System.out.println("Cat: Meow Meow!");
+    }
+}
+
+class Hello {
+    public static void main(String args[]) {
+
+        //  PARENT type   =  CHILD object    <-- This is the magic line
+        Animal a1 = new Dog();
+        Animal a2 = new Cat();
+
+        a1.sound();  // Dog: Bark Bark!   (NOT "Animal makes a sound")
+        a2.sound();  // Cat: Meow Meow!   (NOT "Animal makes a sound")
+
+        // Variable type is Animal, but actual object is Dog/Cat
+        // Java looks at the OBJECT (right side), not the VARIABLE TYPE (left side)
+    }
+}
+```
+
+### Stack & Heap - Animal Example
+
+After `Animal a1 = new Dog();` and `Animal a2 = new Cat();` execute:
+
+```
+Stack                              Heap
+┌──────────────┐                  ┌──────────────────────────────┐
+│ main()       │                  │ Dog object                   │
+│              │                  │ ┌──────────────────────────┐ │
+│ a1 ──────────┼─────────────────►│ │ sound() → "Bark Bark!"  │ │
+│ (type:Animal)│                  │ └──────────────────────────┘ │
+│              │                  └──────────────────────────────┘
+│              │
+│              │                  ┌──────────────────────────────┐
+│ a2 ──────────┼─────────────────►│ Cat object                   │
+│ (type:Animal)│                  │ ┌──────────────────────────┐ │
+│              │                  │ │ sound() → "Meow Meow!"   │ │
+└──────────────┘                  │ └──────────────────────────┘ │
+                                  └──────────────────────────────┘
+
+a1 is declared as Animal, but the ACTUAL object on the Heap is Dog.
+a2 is declared as Animal, but the ACTUAL object on the Heap is Cat.
+When a1.sound() is called, Java looks at the Heap object (Dog) → runs Dog's sound().
+```
+
+### Why does `Animal a = new Dog()` work?
+- Dog IS-A Animal (because Dog extends Animal)
+- So a Dog can fit into an Animal variable
+- But when you call a method, Java uses the ACTUAL object's version
+
+---
+
+## 3. Real-World Example - Payment System
+
+This is where polymorphism becomes really powerful:
+
+```java
+class Payment {
+    void pay(int amount) {
+        System.out.println("Paying " + amount);
+    }
+}
+
+class CreditCard extends Payment {
+    void pay(int amount) {
+        System.out.println("Paid " + amount + " via Credit Card");
+    }
+}
+
+class UPI extends Payment {
+    void pay(int amount) {
+        System.out.println("Paid " + amount + " via UPI");
+    }
+}
+
+class Cash extends Payment {
+    void pay(int amount) {
+        System.out.println("Paid " + amount + " via Cash");
+    }
+}
+
+class Hello {
+    public static void main(String args[]) {
+
+        // ONE variable type handles ALL payment methods
+        Payment p;
+
+        p = new CreditCard();
+        p.pay(500);   // Paid 500 via Credit Card
+
+        p = new UPI();
+        p.pay(200);   // Paid 200 via UPI
+
+        p = new Cash();
+        p.pay(100);   // Paid 100 via Cash
+
+        // Even better - use an array to process all at once!
+        Payment payments[] = { new CreditCard(), new UPI(), new Cash() };
+
+        for (Payment payment : payments) {
+            payment.pay(1000);
+        }
+        // Paid 1000 via Credit Card
+        // Paid 1000 via UPI
+        // Paid 1000 via Cash
+    }
+}
+```
+
+### Stack & Heap - Payment Example
+
+As the reference `p` gets reassigned:
+
+```
+STEP 1: p = new CreditCard();
+
+Stack                              Heap
+┌──────────────┐                  ┌──────────────────────────────┐
+│ main()       │                  │ CreditCard object            │
+│              │                  │ ┌──────────────────────────┐ │
+│ p ───────────┼─────────────────►│ │ pay() → "via Credit Card"│ │
+│ (type:Payment│                  │ └──────────────────────────┘ │
+└──────────────┘                  └──────────────────────────────┘
+
+
+STEP 2: p = new UPI();          (p now points to a different object)
+
+Stack                              Heap
+┌──────────────┐                  ┌──────────────────────────────┐
+│ main()       │                  │ UPI object                   │
+│              │                  │ ┌──────────────────────────┐ │
+│ p ───────────┼─────────────────►│ │ pay() → "via UPI"        │ │
+│ (type:Payment│                  │ └──────────────────────────┘ │
+└──────────────┘                  └──────────────────────────────┘
+
+
+STEP 3: p = new Cash();         (p now points to yet another object)
+
+Stack                              Heap
+┌──────────────┐                  ┌──────────────────────────────┐
+│ main()       │                  │ Cash object                  │
+│              │                  │ ┌──────────────────────────┐ │
+│ p ───────────┼─────────────────►│ │ pay() → "via Cash"       │ │
+│ (type:Payment│                  │ └──────────────────────────┘ │
+└──────────────┘                  └──────────────────────────────┘
+
+The reference type on the Stack is always Payment.
+But the actual object on the Heap changes — and THAT determines which pay() runs.
+```
+
+**Without polymorphism** - you need separate variables: `CreditCard c`, `UPI u`, `Cash cash`
+**With polymorphism** - ONE `Payment` type handles everything
+
+---
+
+## Quick Comparison
+
+| Feature         | Compile-Time (Overloading)         | Runtime (Overriding)                   |
+| --------------- | ---------------------------------- | -------------------------------------- |
+| Where?          | Same class                         | Parent-Child classes                   |
+| What changes?   | Parameters (number/type)           | Method body (same signature)           |
+| When decided?   | During compilation                 | During program execution               |
+| Keyword needed? | No                                 | `extends` (inheritance required)       |
+| Example         | `add(2,3)` vs `add(2,3,4)`        | `Animal a = new Dog(); a.sound();`     |
+
+---
+
+## Remember This
+
+```
+Parent ref = new Child();   // This is runtime polymorphism
+ref.method();               // Calls CHILD's method, not parent's
+```
+
+- Overloading = same class, different params
+- Overriding = different class (parent-child), same method signature
+- Polymorphism makes code flexible - add new types without changing existing code

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -d \"E:/Full_Stack_Notes/19. Java/Code/\"*/)",
+      "Bash(sort -t. -k1 -n)"
+    ]
+  }
+}

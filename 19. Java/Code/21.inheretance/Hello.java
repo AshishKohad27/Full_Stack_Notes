@@ -17,7 +17,7 @@ class Hello {
         int r2 = obj.sub(5,7);
         int r3 = obj.mul(5,7);
         int r4 = obj.div(5,7);
-        int r5 = obj.power(4,2);
+        int r5 = (int) obj.power(4,2);
         System.out.println(r1+" "+r2+" "+r3+" "+r4+" "+r5);
 
 

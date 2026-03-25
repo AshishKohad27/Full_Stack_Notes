@@ -1,0 +1,43 @@
+class Calculator {
+    public int add(int n1, int n2) {
+        int r = n1 + n2;
+        return r;
+    }
+    public int sub(int n1, int n2) {
+        int r = n1 - n2;
+        return r;
+    }
+    public int mul(int n1, int n2) {
+        int r = n1 * n2;
+        return r;
+    }
+    public int quotient(int n1, int n2) {
+        int r = n1 / n2;
+        return r;
+    }
+    public int reminder(int n1, int n2) {
+        int r = n1 % n2;
+        return r;
+    }
+}
+
+class OOP {
+    public static void main(String args[]) {
+
+        int num1 = 4;
+        int num2 = 5;
+
+        Calculator calc = new Calculator();
+        int result_add = calc.add(num1, num2);
+        int result_sub = calc.sub(num1, num2);
+        int result_mul = calc.mul(num1, num2);
+        int result_quotient = calc.quotient(num1, num2);
+        int result_reminder = calc.reminder(num1, num2);
+
+        System.out.println("ADD: " + result_add);
+        System.out.println("SUB: " + result_sub);
+        System.out.println("MUL: " + result_mul);
+        System.out.println("QUOTIENT: " + result_quotient);
+        System.out.println("REMINDER: " + result_reminder);
+    }
+}

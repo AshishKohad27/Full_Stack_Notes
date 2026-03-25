@@ -1,0 +1,28 @@
+class TypeConversion {
+    public static void main(String args[]) {
+        byte b1 = 125;
+        // byte b2 = 257; // error: incompatible types: possible lossy conversion from int to byte
+
+        // Casting
+        int a1 = b1; // assign byte value to int
+        int a2 = 12;
+        // byte b3 = a2; // error: incompatible types: possible lossy conversion from int to byte
+        byte b4 = (byte) a2; // cast with byte; we got 12 because it is in range
+
+        int a3 = 257; // above byte range
+        byte b5 = (byte) a3; // above byte range:- we got 1 because of modulus 257%256 = 1;
+        System.out.println("byte cast of 257: " + b5); // 1
+
+        // For Float
+        float f1 = 5.6f;
+        // int v1 = f1; // error: incompatible types: possible lossy conversion from float to int
+        int v2 = (int) f1; // we are getting 5 (floor value)
+        System.out.println("int cast of 5.6f: " + v2);
+
+        // Type Conversion
+        byte byte1 = 10;
+        byte byte2 = 30;
+        int result = byte1 * byte2; // type Promotion from byte to int because of multiply operation
+        System.out.println("10 * 30 = " + result);
+    }
+}
